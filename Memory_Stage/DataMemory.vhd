@@ -1,4 +1,4 @@
---Big endian memory ex:(address=x"0001" ,datain_32=x"aaaa9999" ==> M(0) = aaaa  &  M(0) = 9999 )
+--Big endian memory ex:(address=x"0001" ,datain_32=x"aaaa9999" ==> M(0) = aaaa  &  M(1) = 9999 )
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.all;
