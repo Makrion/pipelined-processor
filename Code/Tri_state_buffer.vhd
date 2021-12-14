@@ -17,5 +17,5 @@ Architecture TSB_imp of TSB is
 begin 
 
 q<= A when E='1'
-else "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"; 
+else "ZZZZZZZZZZZZZZZZ"; 
 end TSB_imp  ;
