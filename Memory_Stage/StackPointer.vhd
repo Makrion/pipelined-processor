@@ -1,3 +1,5 @@
+--author: Michael Aziz
+--Note: the stack pointer in the Mem-stage (writing in the falling_edge and reading always)
 Library ieee;
 use ieee.std_logic_1164.all;
 
@@ -13,9 +15,12 @@ Architecture ARCHStackPointer of StackPointer is
 begin
 process(clk,en,reset)
 begin
+--giving a reset signal to the stack pointer should reset it to the last location in the data-memory which is the start of the stack
 	if reset='1' then
 		 q <= x"000fffff";
-	elsif falling_edge(clk) and en='1' then
+--assuming that our clk starts from high and the data memory writes on the rising edge --> so, 
+				--the stack pointer should be updated after being modified in the falling edge of the same clk cycle
+	elsif rising_edge(clk) and en='1' then
 		 q <=d ;
 	end if;  
 end process;

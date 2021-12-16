@@ -1,3 +1,5 @@
+--author: Michael Aziz
+--Note: substraction module for the stack pointer in the Mem-stage
 Library ieee;
 use ieee.std_logic_1164.all;
 USE IEEE.numeric_std.all;
