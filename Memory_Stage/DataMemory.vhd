@@ -27,7 +27,6 @@ ARCHITECTURE ARCHDataMemory OF DataMemory IS
 
 	TYPE ram_type IS ARRAY(0 TO 1048575) OF std_logic_vector(15 DOWNTO 0);
 	SIGNAL ram : ram_type ;
-	
 	BEGIN
 		PROCESS(clk) IS
 			BEGIN
@@ -45,11 +44,11 @@ ARCHITECTURE ARCHDataMemory OF DataMemory IS
 		END PROCESS;
 --reading on the 16-bit path
 		dataout_16 <= ram(to_integer(unsigned(address))) when (Mem_read='1' and en_dataout_32 /= '1' and reset /= '1') 
-		else x"0000";
+		else (others => 'X');
 --reading on the 32-bit path
-		dataout_32 <= ram(to_integer(unsigned(address))-1) & ram(to_integer(unsigned(address))) when (Mem_read='1' and en_dataout_32 = '1' and reset /= '1' ) 
+		dataout_32 <= ram(to_integer(unsigned((address)) - 1)) & ram(to_integer(unsigned(address)))  when (Mem_read='1' and en_dataout_32 = '1' and reset /= '1' ) 
 		else ram(0) & ram(1) when (reset = '1') 
-		else x"00000000";
+		else (others => 'X');
 
 END ARCHDataMemory;
 

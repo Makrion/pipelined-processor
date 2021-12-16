@@ -24,7 +24,7 @@ Entity MemoryStage is
 		result , write_data  : in std_logic_vector (15 downto 0);  --result is the ALU output from the prev. stage
 
 		out_return_flag , out_int_flag , out_rti_flag: out std_logic;
-		read_data , out_result  : out std_logic_vector (15 downto 0);	--result is the ALU output from the prev. stage
+		out_read_data , out_result  : out std_logic_vector (15 downto 0);	--result is the ALU output from the prev. stage
 		out_pc : out std_logic_vector (31 downto 0)
 		);
 end MemoryStage;
@@ -68,7 +68,7 @@ map_datamemory : entity work.DataMemory port map (
 		address => mux_to_mem_address,
 		datain_16 => write_data,
 		datain_32  => add_to_mem_32_input,
-		dataout_16 => read_data,
+		dataout_16 => out_read_data,
 		dataout_32 => out_pc
 	);
 

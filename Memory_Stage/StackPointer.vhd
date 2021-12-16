@@ -20,7 +20,7 @@ begin
 		 q <= x"000fffff";
 --assuming that our clk starts from high and the data memory writes on the rising edge --> so, 
 				--the stack pointer should be updated after being modified in the falling edge of the same clk cycle
-	elsif falling_edge(clk) and en='1' then
+	elsif rising_edge(clk) and en='1' then
 		 q <=d ;
 	end if;  
 end process;
