@@ -1,3 +1,0 @@
-nop
-add r0,r1,r3
-not r1
