@@ -1,10 +1,693 @@
 m255
 K4
 z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-dD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project
+dC:/intelFPGA_lite/20.1
+Eaddstackpointer
+Z0 w1641423068
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 13
+Z4 dC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration
+Z5 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/AddStackPointer.vhd
+Z6 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/AddStackPointer.vhd
+l0
+L7 1
+VYJlSRjZ8=E@Re13GAadJ^1
+!s100 0GNiLYoXnMa5EUC3]@U8Q0
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1641479471
+!i10b 1
+Z9 !s108 1641479471.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/AddStackPointer.vhd|
+Z11 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/AddStackPointer.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Aarchaddstackpointer
+R1
+R2
+R3
+Z14 DEx4 work 15 addstackpointer 0 22 YJlSRjZ8=E@Re13GAadJ^1
+!i122 13
+l16
+Z15 L15 8
+V:YJi8i0^ZIiGUhB^CW8PJ1
+!s100 aO][NkG;MYK<[AT_DmVQN0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Econtroller
+Z16 w1641476438
+R2
+R3
+!i122 2
+R4
+Z17 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Controller.vhd
+Z18 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Controller.vhd
+l0
+L4 1
+Voc<ES5?EKN^a1_E1=7@ZG3
+!s100 C6fmQE2]:V`ENV7he5?^K2
+R7
+32
+Z19 !s110 1641478339
+!i10b 1
+Z20 !s108 1641478338.000000
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Controller.vhd|
+Z22 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Controller.vhd|
+!i113 1
+R12
+R13
+Acontroller_imp
+R2
+R3
+DEx4 work 10 controller 0 22 oc<ES5?EKN^a1_E1=7@ZG3
+!i122 2
+l19
+L17 67
+V[=1_@C:HNB<OfFSTaRG:R3
+!s100 1UY:Hn2^BXTF[ODiD<MV?0
+R7
+32
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R12
+R13
+Edatamemory
+R0
+R1
+R2
+R3
+!i122 14
+R4
+Z23 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DataMemory.vhd
+Z24 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DataMemory.vhd
+l0
+L15 1
+Vm^4LZ@IcA[ZWS<QG>TQoM0
+!s100 cIjQ>lhb2zY_gNkI2K16B2
+R7
+32
+Z25 !s110 1641479475
+!i10b 1
+Z26 !s108 1641479475.000000
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DataMemory.vhd|
+Z28 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DataMemory.vhd|
+!i113 1
+R12
+R13
+Aarchdatamemory
+R1
+R2
+R3
+Z29 DEx4 work 10 datamemory 0 22 m^4LZ@IcA[ZWS<QG>TQoM0
+!i122 14
+l30
+L26 28
+V0OMbWzLkJbAH_a_^Jnb`32
+!s100 Lla`iLzWm1AP]XD]EzPUE1
+R7
+32
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 1
+R12
+R13
+Edecoder
+R16
+R2
+R3
+!i122 1
+R4
+Z30 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Decoder.vhd
+Z31 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Decoder.vhd
+l0
+L7 1
+V4OMLZiQ`^]R>=e3DVS1Ul2
+!s100 H88J11;^H^PDCJL`81F;83
+R7
+32
+Z32 !s110 1641478335
+!i10b 1
+Z33 !s108 1641478335.000000
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Decoder.vhd|
+Z35 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Decoder.vhd|
+!i113 1
+R12
+R13
+Adecoder_imp
+R2
+R3
+DEx4 work 7 decoder 0 22 4OMLZiQ`^]R>=e3DVS1Ul2
+!i122 1
+l17
+L16 33
+Vz<bWgfXQ:k2L0E@L=64M]0
+!s100 84@>f9S`Bk_b64K_8QlGB2
+R7
+32
+R32
+!i10b 1
+R33
+R34
+R35
+!i113 1
+R12
+R13
+Edff
+R16
+R2
+R3
+!i122 0
+R4
+Z36 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DFF.vhd
+Z37 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DFF.vhd
+l0
+L3 1
+VD?m_B3_]h7:9NTVJ`_oi41
+!s100 `d?<:_=P6A;YG^_I=jZ@Q2
+R7
+32
+Z38 !s110 1641478328
+!i10b 1
+Z39 !s108 1641478328.000000
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DFF.vhd|
+Z41 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/DFF.vhd|
+!i113 1
+R12
+R13
+Adff_imp
+R2
+R3
+DEx4 work 3 dff 0 22 D?m_B3_]h7:9NTVJ`_oi41
+!i122 0
+l16
+L14 13
+VZfd7;:cM>82Ph1h50n]a^1
+!s100 6kJ^UGDP]aBYC]ToYi9WB3
+R7
+32
+R38
+!i10b 1
+R39
+R40
+R41
+!i113 1
+R12
+R13
+Efetchstage
+R16
+R1
+R2
+R3
+!i122 9
+R4
+Z42 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/FetchStage.vhd
+Z43 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/FetchStage.vhd
+l0
+L5 1
+Vc>T7n;O64Sh?cdCj]mQM40
+!s100 `Ym97Dmf<H?_>GzFLeIze2
+R7
+32
+Z44 !s110 1641478369
+!i10b 1
+Z45 !s108 1641478368.000000
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/FetchStage.vhd|
+Z47 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/FetchStage.vhd|
+!i113 1
+R12
+R13
+Aarchfetchstage
+Z48 DEx4 work 17 instructionmemory 0 22 2nGVD2kC^RG<`]E09HIDh2
+Z49 DEx4 work 7 pclogic 0 22 ;^^b[JkZoce^EY[4V[_5E2
+R1
+R2
+R3
+DEx4 work 10 fetchstage 0 22 c>T7n;O64Sh?cdCj]mQM40
+!i122 9
+l26
+L24 40
+V0>C5@_2d`QoTHIiWJ4mY`2
+!s100 `4=K[b]`Q?6DhaR>5ScAR2
+R7
+32
+R44
+!i10b 1
+R45
+R46
+R47
+!i113 1
+R12
+R13
+Einstructionmemory
+R16
+R1
+R2
+R3
+!i122 4
+R4
+Z50 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/InstructionMemory.vhd
+Z51 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/InstructionMemory.vhd
+l0
+L5 1
+V2nGVD2kC^RG<`]E09HIDh2
+!s100 ZD111Xn32:6nSGU0zIc3Z3
+R7
+32
+Z52 !s110 1641478347
+!i10b 1
+Z53 !s108 1641478347.000000
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/InstructionMemory.vhd|
+Z55 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/InstructionMemory.vhd|
+!i113 1
+R12
+R13
+Aarchinstructionmemory
+R1
+R2
+R3
+R48
+!i122 4
+l14
+L11 6
+VJ`Z<X?k>n?d2Dd8bV6dI11
+!s100 24hV6mGanHKG9fDYQ`J7H1
+R7
+32
+R52
+!i10b 1
+R53
+R54
+R55
+!i113 1
+R12
+R13
+Eintegration
+Z56 w1641485766
+R2
+R3
+!i122 27
+R4
+Z57 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Integration.vhd
+Z58 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Integration.vhd
+l0
+L4 1
+VE`R6kl;^lP<kGbCTTjiN]0
+!s100 CPa7SSHgJIV6Lhi5BD>7n3
+R7
+32
+Z59 !s110 1641485771
+!i10b 1
+Z60 !s108 1641485771.000000
+Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Integration.vhd|
+Z62 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Integration.vhd|
+!i113 1
+R12
+R13
+Aintegration
+Z63 DEx4 work 14 writebackstage 0 22 b;4k53Q3nI2fS2V>aMKNf3
+Z64 DEx4 work 11 stagebuffer 0 22 _R:diCcmFR<SMl4ED0NG93
+R1
+Z65 DEx4 work 11 memorystage 0 22 2cbOf@RbI?aW9U5B>MU052
+R2
+R3
+DEx4 work 11 integration 0 22 E`R6kl;^lP<kGbCTTjiN]0
+!i122 27
+l48
+L32 88
+Vl;>b<H<DV;VPn0BYFZWj10
+!s100 5K4:id33lO@S=f8X4?Ag80
+R7
+32
+R59
+!i10b 1
+R60
+R61
+R62
+!i113 1
+R12
+R13
+Ememorystage
+R0
+R1
+R2
+R3
+!i122 17
+R4
+Z66 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/MemoryStage.vhd
+Z67 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/MemoryStage.vhd
+l0
+L7 1
+V2cbOf@RbI?aW9U5B>MU052
+!s100 MS14iQ]^mg5LT@TB[mnhQ1
+R7
+32
+Z68 !s110 1641479494
+!i10b 1
+Z69 !s108 1641479493.000000
+Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/MemoryStage.vhd|
+Z71 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/MemoryStage.vhd|
+!i113 1
+R12
+R13
+Aarchmemorystage
+Z72 DEx4 work 12 stackpointer 0 22 Sl6D=W92Efn<H<1QnH[jW1
+Z73 DEx4 work 15 substackpointer 0 22 zE5NETSQ_f2DmZZ0OnJFd3
+R14
+R29
+R1
+R2
+R3
+R65
+!i122 17
+l37
+L33 67
+VeYFLMNh8MK@oh[?`gieSV1
+!s100 n8W9JhLS_Ho4]`K^1e0J93
+R7
+32
+R68
+!i10b 1
+R69
+R70
+R71
+!i113 1
+R12
+R13
+Epclogic
+R16
+R1
+R2
+R3
+!i122 5
+R4
+Z74 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/PCLogic.vhd
+Z75 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/PCLogic.vhd
+l0
+L5 1
+V;^^b[JkZoce^EY[4V[_5E2
+!s100 kZmP@4V^nJi6_gf8QjZGc3
+R7
+32
+Z76 !s110 1641478354
+!i10b 1
+Z77 !s108 1641478354.000000
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/PCLogic.vhd|
+Z79 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/PCLogic.vhd|
+!i113 1
+R12
+R13
+Aarchpclogic
+R1
+R2
+R3
+R49
+!i122 5
+l24
+L22 11
+VFP`LT`<9fVWb7<2PP0^zC2
+!s100 j<_0F]02BYzh[O6n<d5Y30
+R7
+32
+R76
+!i10b 1
+R77
+R78
+R79
+!i113 1
+R12
+R13
+Eregister_file
+R16
+R2
+R3
+!i122 6
+R4
+Z80 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Resgiter_file.vhd
+Z81 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Resgiter_file.vhd
+l0
+L8 1
+Vz579;VSF7_ng=OfQCHk1:3
+!s100 hBQX<=i7D6Z]2Wa2ECZ]E1
+R7
+32
+Z82 !s110 1641478359
+!i10b 1
+Z83 !s108 1641478359.000000
+Z84 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Resgiter_file.vhd|
+Z85 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Resgiter_file.vhd|
+!i113 1
+R12
+R13
+Aregister_file_imp
+R2
+R3
+DEx4 work 13 register_file 0 22 z579;VSF7_ng=OfQCHk1:3
+!i122 6
+l51
+L21 78
+V;Hm?]8jN0S6ilbNYG8[nL0
+!s100 @KZ29KzBVYm_o3MeNE_in0
+R7
+32
+R82
+!i10b 1
+R83
+R84
+R85
+!i113 1
+R12
+R13
+Estackpointer
+R0
+R2
+R3
+!i122 15
+R4
+Z86 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StackPointer.vhd
+Z87 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StackPointer.vhd
+l0
+L6 1
+VSl6D=W92Efn<H<1QnH[jW1
+!s100 o6nJ7lU5iLU[W<F_?QafI3
+R7
+32
+Z88 !s110 1641479480
+!i10b 1
+Z89 !s108 1641479479.000000
+Z90 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StackPointer.vhd|
+Z91 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StackPointer.vhd|
+!i113 1
+R12
+R13
+Aarchstackpointer
+R2
+R3
+R72
+!i122 15
+l15
+L14 14
+Va2ThYzj;m?IU]gL9=JUnk3
+!s100 NK@Hz861alfDLmogMR0f@0
+R7
+32
+R88
+!i10b 1
+R89
+R90
+R91
+!i113 1
+R12
+R13
+Estagebuffer
+Z92 w1641478604
+R2
+R3
+!i122 12
+R4
+Z93 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StageBuffer.vhd
+Z94 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StageBuffer.vhd
+l0
+L3 1
+V_R:diCcmFR<SMl4ED0NG93
+!s100 iiKJQUDLFgEGWf4:c^01T0
+R7
+32
+Z95 !s110 1641478606
+!i10b 1
+Z96 !s108 1641478606.000000
+Z97 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StageBuffer.vhd|
+Z98 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/StageBuffer.vhd|
+!i113 1
+R12
+R13
+Aarch_stagebuffer
+R2
+R3
+R64
+!i122 12
+l14
+L12 13
+V?5o`^>Qb@3Bz2=Jd0j:Gg1
+!s100 YXIOC3C@]0c2RK9?Q63?A2
+R7
+32
+R95
+!i10b 1
+R96
+R97
+R98
+!i113 1
+R12
+R13
+Esubstackpointer
+R0
+R1
+R2
+R3
+!i122 16
+R4
+Z99 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/SubStackPointer.vhd
+Z100 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/SubStackPointer.vhd
+l0
+L7 1
+VzE5NETSQ_f2DmZZ0OnJFd3
+!s100 UB6FDFJo5SGRNQHVR2;`62
+R7
+32
+Z101 !s110 1641479482
+!i10b 1
+Z102 !s108 1641479482.000000
+Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/SubStackPointer.vhd|
+Z104 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/SubStackPointer.vhd|
+!i113 1
+R12
+R13
+Aarchsubstackpointer
+R1
+R2
+R3
+R73
+!i122 16
+l16
+R15
+V?V`gKi9bAW_1_oA3G^H811
+!s100 ?ce25AUJK90>@Pe;8O_Gj3
+R7
+32
+R101
+!i10b 1
+R102
+R103
+R104
+!i113 1
+R12
+R13
+Etsb
+R16
+R2
+R3
+!i122 8
+R4
+Z105 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Tri_state_buffer.vhd
+Z106 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Tri_state_buffer.vhd
+l0
+L6 1
+VcYhGm?EzKbmK`oDGgFHoK2
+!s100 mAcMR<]T<mUi0oLee<13T3
+R7
+32
+Z107 !s110 1641478364
+!i10b 1
+Z108 !s108 1641478364.000000
+Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Tri_state_buffer.vhd|
+Z110 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/Tri_state_buffer.vhd|
+!i113 1
+R12
+R13
+Atsb_imp
+R2
+R3
+DEx4 work 3 tsb 0 22 cYhGm?EzKbmK`oDGgFHoK2
+!i122 8
+l17
+L16 6
+VeBmUeT8ldNmE=Gd=M^Rc50
+!s100 =PWb7PiGnaClJI3<_>71g1
+R7
+32
+R107
+!i10b 1
+R108
+R109
+R110
+!i113 1
+R12
+R13
+Ewritebackstage
+R0
+R1
+R2
+R3
+!i122 18
+R4
+Z111 8C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/WriteBackStage.vhd
+Z112 FC:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/WriteBackStage.vhd
+l0
+L5 1
+Vb;4k53Q3nI2fS2V>aMKNf3
+!s100 LV`DF5SaH=JIK;WG0WGJC3
+R7
+32
+Z113 !s110 1641479908
+!i10b 1
+Z114 !s108 1641479907.000000
+Z115 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/WriteBackStage.vhd|
+Z116 !s107 C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/WriteBackStage.vhd|
+!i113 1
+R12
+R13
+Aarchwritebackstage
+R1
+R2
+R3
+R63
+!i122 18
+l36
+L32 18
+Vz_RJFKMPD5O9R3KTWZ<0d1
+!s100 Fk2kfn_[HWHY1RU67YzSe0
+R7
+32
+R113
+!i10b 1
+R114
+R115
+R116
+!i113 1
+R12
+R13

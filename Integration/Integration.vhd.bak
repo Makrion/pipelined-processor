@@ -2,6 +2,8 @@ library ieee ;
 use ieee.std_logic_1164.all ; 
 
 Entity Integration is 
+Generic (n : integer :=16); 
+
 port(		
         clk , reset : in std_logic;
         out_port : out std_logic_vector (15 downto 0);

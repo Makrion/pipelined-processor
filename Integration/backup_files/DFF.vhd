@@ -1,25 +1,27 @@
 library ieee ; 
 use ieee.std_logic_1164.all ; 
-Entity StageBuffer is 
+Entity DFF is 
 Generic (n : integer :=16); 
 
-port(clk , rst ,en: in std_logic ; 
+port(clk , rst ,E: in std_logic ; 
 	 d         : in std_logic_vector (n-1 downto 0); 
 	 q         : out std_logic_vector(n-1 downto 0)); 
 	 
-end StageBuffer ; 
+end DFF ; 
 
-Architecture Arch_StageBuffer of StageBuffer is 
 
+
+Architecture DFF_imp of DFF is 
+ 
 begin 
 	process(clk ,rst)
 	begin
 		if rst='1' then 
 			q<= (others =>'0'); 
-		elsif rising_edge(clk) and en='1' then 
+		elsif falling_edge(clk) and E='1' then 
 			q<=d ; 
 		end if ; 
 	end process;
 	
-end Arch_StageBuffer;
+end DFF_imp;
 

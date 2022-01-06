@@ -1,0 +1,80 @@
+# Reading pref.tcl
+# vsim -gui C:\Users\Michael\Desktop\CA_Project\pipe_pushing_github\last_repo\pipelined-processor\Integration 
+# Start time: 16:03:12 on Jan 06,2022
+# ** Error (suppressible): (vsim-19) Failed to access library 'work' at "work".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 16:03:13 on Jan 06,2022, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Loading project processor
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Compile of Controller.vhd was successful with warnings.
+# Compile of Decoder.vhd was successful with warnings.
+# Compile of DFF.vhd was successful with warnings.
+# Compile of FetchStage.vhd failed with 6 errors.
+# Compile of InstructionMemory.vhd was successful with warnings.
+# Compile of Integration.vhd failed with 1 errors.
+# Compile of PCLogic.vhd was successful with warnings.
+# Compile of Resgiter_file.vhd was successful with warnings.
+# Compile of StageBuffer.vhd failed with 2 errors.
+# Compile of Tri_state_buffer.vhd was successful with warnings.
+# 10 compiles, 3 failed with 9 errors.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Compile of Controller.vhd was successful with warnings.
+# Compile of Decoder.vhd was successful with warnings.
+# Compile of DFF.vhd was successful with warnings.
+# Compile of FetchStage.vhd was successful with warnings.
+# Compile of InstructionMemory.vhd was successful with warnings.
+# Compile of Integration.vhd failed with 1 errors.
+# Compile of PCLogic.vhd was successful with warnings.
+# Compile of Resgiter_file.vhd was successful with warnings.
+# Compile of StageBuffer.vhd failed with 2 errors.
+# Compile of Tri_state_buffer.vhd was successful with warnings.
+# 10 compiles, 2 failed with 3 errors.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-14) Failed to open "C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf" specified by the MODELSIM environment variable.
+# No such file or directory. (errno = ENOENT)
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Compile of Controller.vhd was successful with warnings.
+# Compile of Decoder.vhd was successful with warnings.
+# Compile of DFF.vhd was successful with warnings.
+# Compile of FetchStage.vhd failed with 6 errors.
+# Compile of InstructionMemory.vhd was successful with warnings.
+# Compile of Integration.vhd failed with 1 errors.
+# Compile of PCLogic.vhd was successful with warnings.
+# Compile of Resgiter_file.vhd was successful with warnings.
+# Compile of StageBuffer.vhd failed with 2 errors.
+# Compile of Tri_state_buffer.vhd was successful with warnings.
+# 10 compiles, 3 failed with 9 errors.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Project file C:/Users/Michael/Desktop/CA_Project/pipe_pushing_github/last_repo/pipelined-processor/Integration/processor.mpf is write protected, data cannot be saved.
+# Unable to save project.
