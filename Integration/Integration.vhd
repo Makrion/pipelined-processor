@@ -5,7 +5,7 @@ Entity Integration is
 port(		
         clk , reset : in std_logic;
         out_port : out std_logic_vector (15 downto 0);
-
+		in_port	: in std_logic_vector (15 downto 0);
 
 -------------------------------------------------------------------temporary ports to be deleted when we finish integerating all stages
 	register_write  , write_Back_selector , output_signal , return_int_rti_flush : in std_logic;
@@ -18,7 +18,7 @@ port(
 	out_return_flag , out_int_flag , out_rti_flag: out std_logic;
 	out_pc : out std_logic_vector (31 downto 0);
 
-	out_stack_wb : out std_logic;        --------------------------------------------------------(we don't use it) revise it later
+	out_stack_wb : out std_logic        --------------------------------------------------------(we don't use it) revise it later
 -------------------------------------------------------------------temporary ports to be deleted when we finish integerating all stages
     ); 
 	 
@@ -49,8 +49,44 @@ signal buffer_to_decode, fetch_to_buffer : std_logic_vector (63 downto 0);
 -----------[32]	instruction
 -----------MSB
 
+-----------signals-between-decode-and-excute
+signal buffer_to_excute, decode_to_buffer : std_logic_vector (129 downto 0);
+-----------LSB
+-----------[26] contoller signals	25:0
+-----------[32]	pc					57:26
+-----------[16] data1				73:58
+-----------[16]	data2				89:74
+-----------[16]	in_port				105:90
+-----------[16]	offset 				121:106
+-----------[4]	destinationaddress1 125:122
+-----------[4]	destinationaddress2	129:126
+-----------MSB
+
+-----------signals-between-excute-and-memory
+signal buffer_to_memory, excution_to_buffer : std_logic_vector (81 downto 0);
+-----------LSB
+-----------[1] out_return_flag         			0
+-----------[1] out_call_flag            		1
+-----------[1] out_register_write       		2
+-----------[1] out_write_Back_selector  		3
+-----------[1] out_mem_write            		4
+-----------[1] out_mem_read             		5
+-----------[1] out_output_signal        		6
+-----------[1] out_return_int_rti_flush 		7
+-----------[1] out_call_flush           		8
+-----------[1] out_push_flag            		9
+-----------[1] out_pop_flag             		10
+-----------[1] out_int_flag             		11
+-----------[1] out_rti_flag  					12
+-----------[32] pc								44:13
+-----------[16] result 							60:45
+-----------[1] stack_address					61
+-----------[16] write_data						77:62
+-----------[4] write_back_address				81:78
+-----------MSB
+
 ----------------------decode signals
-signal controller_signals : std_logic_vector(25:0); 
+-- signal controller_signals : std_logic_vector(25:0); 
 
 --------------write back signals
 signal out_wb_data :  std_logic_vector (15 downto 0);
@@ -72,36 +108,107 @@ map_FetchStage : entity work.FetchStage port map (
 		int_flag , 
 		call_flag , 
 		branch_flag in ,
-		hlt_signal => controller_signals(25), 
-		intrusction_size => controller_signals(24), 
+		hlt_signal => decode_to_buffer(25), 			---decode_to_buffer here = controller signals
+		intrusction_size => decode_to_buffer(24), 		---decode_to_buffer here = controller signals
 		pc_branch_call , 
 		pc_return_rti_int_reset : in std_logic_vector (31 downto 0);
-		out_pc => fetch_to_buffer(31 downto 0), 
+		out_pc => fetch_to_buffer(31 downto 0), 		
 		out_instruction => fetch_to_buffer(63 downto 32)
 		);
 
 map_Stage_fetch_decode_Buffer : entity work.StageBuffer generic map (64) port map (
 		 clk => clk,
-		 rst => reset or controller_signals(5) or '0', ----todo add pc selector (branch or not)
-		 en => (not controller_signals(25)),
+		 rst => reset or decode_to_buffer(5) or '0', ----todo add pc selector (branch or not) ---decode_to_buffer here = controller signals
+		 en => (not decode_to_buffer(25)),			---decode_to_buffer here = controller signals
 		 d => fetch_to_buffer,  
 		 q => buffer_to_decode
 		);
 
-map_Decodingstage : entity work.Decodingstage port map ( 
-		instruction => buffer_to_decode(63 downto 32),
-          	clk =>clk ,
-		reset =>reset ,  
-          	wb_data  =>out_wb_data,
-          	Register_write =>out_register_write ,
-          	WB_address =>out_wb_address , 
-          	data1,
-		data2,
-          	signals => controller_signals
-    		);
+-----------------------------------------------------------------------------------------------------integ-decode-Excute
 
+map_Decodingstage : entity work.Decodingstage port map (
+		in_port => in_port, 
+		pc =>buffer_to_decode(31 downto 0),
+		instruction => buffer_to_decode(63 downto 32),
+        clk =>clk ,
+		reset =>reset ,  
+        wb_data  =>out_wb_data,
+        Register_write =>out_register_write ,
+        WB_address =>out_wb_address , 
+        data1 =>decode_to_buffer(73 downto 58),
+		data2 =>decode_to_buffer(89 downto 74),
+        signals => decode_to_buffer(25 downto 0),
+		out_pc => decode_to_buffer(57 downto 26),
+        out_offset => decode_to_buffer(121 downto 106),
+        out_destinationaddress1 => decode_to_buffer(125 downto 122),
+        out_destinationaddress2 => decode_to_buffer(129 downto 126),
+		out_in_port => decode_to_buffer(105 downto 90)
+    	);
+
+map_Stage_decode_ex_Buffer : entity work.StageBuffer generic map (130) port map (
+		clk => clk,
+		rst => reset or '1',	----todo add pc selector (branch or not)
+		en => '1',
+		d => decode_to_buffer,  
+		q => buffer_to_excute
+	);
 
 ----------------------------------------------------------------------------------------------------------------
+	
+-----------------------------------------------------------------------------------------------------integ-Excute-memory
+
+map_ExecuteStage : entity work.ExecutionStage port map (
+			clk =>clk , 
+			reset => reset ,
+
+		--Signals that just passes to next stage (13 in) (13 out)--------------------------
+			return_flag =>buffer_to_excute(11) , 
+			call_flag =>buffer_to_excute(12) , 
+			register_write =>buffer_to_excute(13), 
+			write_Back_selector =>buffer_to_excute(14) , 
+			mem_write =>buffer_to_excute(15), 
+			mem_read =>buffer_to_excute(16), 
+			output_signal =>buffer_to_excute(18),
+			return_int_rti_flush =>buffer_to_excute(22),
+			call_flush =>buffer_to_excute(23),
+			push_flag =>buffer_to_excute(8) , 
+			pop_flag =>buffer_to_excute(7) ,
+			int_flag =>buffer_to_excute(10),
+			rti_flag =>buffer_to_excute(9),
+
+			--- the out of these signals 
+			out_return_flag , out_call_flag ,out_register_write , out_write_Back_selector , out_mem_write , out_mem_read , out_output_signal : out std_logic;
+			out_return_int_rti_flush , out_call_flush                 : out std_logic;
+			out_push_flag , out_pop_flag , out_int_flag ,out_rti_flag : out std_logic;
+
+		--Signals important for the exxecution stage  ---------------------------------
+			wb_destination_selector =>buffer_to_excute(17) , 
+			branch_flag =>buffer_to_excute(19), 
+			mem_data_write =>buffer_to_excute(6),
+			alu_control =>buffer_to_excute(4 downto 0),   
+			alu_src =>buffer_to_excute(21 downto 20),
+			
+		---inputs -------------------------------------------       
+			pc =>buffer_to_excute(57 downto 26),     -- just pass the pc
+			data1 =>buffer_to_excute(73 downto 58),   --source1
+			data2 =>buffer_to_excute(89 downto 74), --goes into a mux that decide which is source2
+			in_port =>buffer_to_excute(105 downto 90), ---goes into a mux that decide which is source2
+			offset  =>buffer_to_excute(121 downto 106), --goes into a mux that decide which is source2 {from [0,15]}
+			destinationaddress1 =>buffer_to_excute(125 downto 122), --bits form [0,3] to decide the destination with a mux
+			destinationaddress2 =>buffer_to_excute(129 downto 126), --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
+
+		--outputs--------------------------------------------
+			out_pc : out std_logic_vector (31 downto 0); -- passing the pc
+			branch_call_pc : out  std_logic_vector (31 downto 0); --is taken from data1
+			wb_address     : out  std_logic_vector (3 downto 0); --either destinationadd1 or destinationadd2 
+			stack_address  : out  std_logic;
+			pc_selector_branch_ornot : out  std_logic;--out of an and gate 
+			result      : out std_logic_vector (15 downto 0); --output of the alu
+			write_data  : out std_logic_vector (15 downto 0) --the data passed to the memory either src1 or src2
+	    );
+
+	---------bufferrrrrrrrrrrrr
+
 ----------------------------------------------------------------------------------------------------------------integ-memory-wb
 map_MemoryStage : entity work.MemoryStage port map (
 		clk => clk,
@@ -157,7 +264,7 @@ map_WriteBackStage : entity work.WriteBackStage port map (
 		write_back_selector => buffer_to_wb(37),
 		output_signal => buffer_to_wb(38),
 		result => buffer_to_wb(31 downto 16),
-	        read_data => buffer_to_wb(15 downto 0),
+	    read_data => buffer_to_wb(15 downto 0),
 		stack_wb => '0',         --------------------------------------------------------(we don't use it) revise it later
 		out_out_port => out_port,
 		--------------------------------temporary signals to be deleted when we finish integerating all stages
@@ -167,8 +274,9 @@ map_WriteBackStage : entity work.WriteBackStage port map (
 		out_wb_address => out_wb_address
 		);
 
+
 	
-----------------------------------------------------------------------------------------------------------------
+
 end Integration;
 
 
