@@ -2,7 +2,7 @@
 library ieee ; 
 use ieee.std_logic_1164.all ; 
 Entity controller is
-port(clk , reset,prev_hlt_signal: in std_logic ; 
+port(reset: in std_logic ; 
 	 opcode         : in std_logic_vector (5 downto 0); 
 	 signals        : out std_logic_vector(25 downto 0));
      -- number of bits of the signal vector will be updated 
