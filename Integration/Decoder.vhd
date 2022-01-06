@@ -38,7 +38,7 @@ begin
             output<=(7=>'1' ,others=>'0');
         
             
-
+		
 		end if ;
 	
 	end process ;

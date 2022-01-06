@@ -2,8 +2,6 @@ library ieee ;
 use ieee.std_logic_1164.all ; 
 
 Entity Integration is 
-Generic (n : integer :=16); 
-
 port(		
         clk , reset : in std_logic;
         out_port : out std_logic_vector (15 downto 0);
@@ -20,10 +18,7 @@ port(
 	out_return_flag , out_int_flag , out_rti_flag: out std_logic;
 	out_pc : out std_logic_vector (31 downto 0);
 
-	out_wb_data : out std_logic_vector (15 downto 0);
-	out_register_write : out std_logic;  
 	out_stack_wb : out std_logic;        --------------------------------------------------------(we don't use it) revise it later
-	out_wb_address : out std_logic_vector (3 downto 0)
 -------------------------------------------------------------------temporary ports to be deleted when we finish integerating all stages
     ); 
 	 
@@ -47,9 +42,60 @@ signal buffer_to_wb, memory_to_buffer : std_logic_vector (39 downto 0);
 -----------[1] output_signal
 -----------MSB
 
+-----------signals-between-fetch-and-decoding
+signal buffer_to_decode, fetch_to_buffer : std_logic_vector (63 downto 0);
+-----------LSB
+-----------[32] pc
+-----------[32]	instruction
+-----------MSB
+
+----------------------decode signals
+signal controller_signals : std_logic_vector(25:0); 
+
+--------------write back signals
+signal out_wb_data :  std_logic_vector (15 downto 0);
+signal out_register_write :  std_logic;  
+signal out_wb_address :  std_logic_vector (3 downto 0)
+
 begin 
 
 ----------------------------------------------------------------------------------------------------------------integ-fetch-decode
+map_FetchStage : entity work.FetchStage port map (
+		clk =>clk , 
+		reset =>reset , 
+		return_flag , 
+		rti_flag , 
+		int_flag , 
+		call_flag , 
+		branch_flag in ,
+		hlt_signal => controller_signals(25), 
+		intrusction_size => controller_signals(24), 
+		pc_branch_call , 
+		pc_return_rti_int_reset : in std_logic_vector (31 downto 0);
+		out_pc => fetch_to_buffer(31 downto 0), 
+		out_instruction => fetch_to_buffer(63 downto 32)
+		);
+
+map_Stage_fetch_decode_Buffer : entity work.StageBuffer generic map (64) port map (
+		 clk => clk,
+		 rst => reset or controller_signals(5) or '0', ----todo add pc selector (branch or not)
+		 en => (not controller_signals(25)),
+		 d => fetch_to_buffer,  
+		 q => buffer_to_decode
+		);
+
+map_Decodingstage : entity work.Decodingstage port map ( 
+		instruction => buffer_to_decode(63 downto 32),
+          	clk =>clk ,
+		reset =>reset ,  
+          	wb_data  =>out_wb_data,
+          	Register_write =>out_register_write ,
+          	WB_address =>out_wb_address , 
+          	data1,
+		data2,
+          	signals => controller_signals
+    		);
+
 
 ----------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------integ-memory-wb
@@ -89,7 +135,8 @@ map_MemoryStage : entity work.MemoryStage port map (
 		out_rti_flag => out_rti_flag,
 		out_pc => out_pc
 		);
-map_StageBuffer : entity work.StageBuffer generic map (40) port map (
+
+map_Stage_mem_wb_Buffer : entity work.StageBuffer generic map (40) port map (
 		 clk => clk,
 		 rst => reset,
 		 en => '1',
