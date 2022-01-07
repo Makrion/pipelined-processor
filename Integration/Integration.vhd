@@ -86,12 +86,12 @@ signal buffer_to_memory, excution_to_buffer : std_logic_vector (81 downto 0);
 -----------MSB
 
 ----------------------decode signals
--- signal controller_signals : std_logic_vector(25:0); 
+signal decode_buffer_rst :std_logic; 
 
 --------------write back signals
 signal out_wb_data :  std_logic_vector (15 downto 0);
 signal out_register_write :  std_logic;  
-signal out_wb_address :  std_logic_vector (3 downto 0)
+signal out_wb_address :  std_logic_vector (3 downto 0);
 
 
 -----todo split the instruction after the decoding stage
@@ -99,7 +99,7 @@ signal out_wb_address :  std_logic_vector (3 downto 0)
 
 ---------------excute signals
 signal out_pc_selector_branch_ornot : std_logic;
-signal out_branch_call_pc : std_logic_vecotor(31 downto 0);
+signal out_branch_call_pc : std_logic_vector(31 downto 0);
 
 ---------------memory signals
 signal out_mem_return_int_rti_flush : std_logic;
@@ -107,6 +107,10 @@ signal out_mem_return_flag : std_logic;
 signal out_mem_int_flag : std_logic;
 signal out_mem_rti_flag : std_logic;
 signal out_mem_pc_return_rti_int_reset : std_logic_vector(31 downto 0);
+
+---------------fetch signals
+signal fetch_buffer_en :std_logic;
+signal fetch_buffer_rst :std_logic;
 
 begin 
 
@@ -127,18 +131,21 @@ map_FetchStage : entity work.FetchStage port map (
 		out_instruction => fetch_to_buffer(63 downto 32)
 		);
 
+fetch_buffer_en <= (not decode_to_buffer(25)); ---decode_to_buffer here = controller signals
+			 ---			 flush from controler	branch ornot					call flush				return_int_rti flush from ex	return_int_rti flush from mem
+fetch_buffer_rst <=reset or decode_to_buffer(5) or out_pc_selector_branch_ornot or buffer_to_excute(23) or buffer_to_excute(22)  or buffer_to_memory(7);
+
 map_Stage_fetch_decode_Buffer : entity work.StageBuffer generic map (64) port map (
 		 clk => clk,
-		 ---			 flush from controler	branch ornot					call flush				return_int_rti flush from ex	return_int_rti flush from mem
-		 rst => reset or decode_to_buffer(5) or out_pc_selector_branch_ornot or buffer_to_excute(23) or buffer_to_excute(22)  or 		buffer_to_memory(7) ,	----todo add pc selector (branch or not) ---decode_to_buffer here = controller signals
-		 en => (not decode_to_buffer(25)),			---decode_to_buffer here = controller signals
+		 rst => fetch_buffer_rst ,	    
+		 en => fetch_buffer_en,			---decode_to_buffer here = controller signals
 		 d => fetch_to_buffer,  
 		 q => buffer_to_decode
 		);
 
 -----------------------------------------------------------------------------------------------------integ-decode-Excute
 
-map_Decodingstage : entity work.Decodingstage port map (
+map_Decodingstage : entity work.decoding_stage port map (
 		in_port => in_port, 
 		pc =>buffer_to_decode(31 downto 0),
 		instruction => buffer_to_decode(63 downto 32),
@@ -146,7 +153,7 @@ map_Decodingstage : entity work.Decodingstage port map (
 		reset =>reset ,  
         wb_data  =>out_wb_data,
         Register_write =>out_register_write ,
-        WB_address =>out_wb_address , 
+        WB_address =>out_wb_address(2 downto 0) , 
         data1 =>decode_to_buffer(73 downto 58),
 		data2 =>decode_to_buffer(89 downto 74),
         signals => decode_to_buffer(25 downto 0),
@@ -157,9 +164,11 @@ map_Decodingstage : entity work.Decodingstage port map (
 		out_in_port => decode_to_buffer(105 downto 90)
     	);
 
+decode_buffer_rst<=reset or out_pc_selector_branch_ornot;
+
 map_Stage_decode_ex_Buffer : entity work.StageBuffer generic map (130) port map (
 		clk => clk,
-		rst => reset or '1',	----todo add pc selector (branch or not)
+		rst => decode_buffer_rst,
 		en => '1',
 		d => decode_to_buffer,  
 		q => buffer_to_excute

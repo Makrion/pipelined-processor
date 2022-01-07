@@ -16,7 +16,7 @@ Entity decoding_stage is
           out_pc                : out std_logic_vector(31 downto 0);
           out_offset  : out std_logic_vector (15 downto 0); --goes into a mux that decide which is source2 {from [0,15]}
           out_destinationaddress1 : out std_logic_vector (3 downto 0); --bits form [0,3] to decide the destination with a mux
-          out_destinationaddress2 : out std_logic_vector (3 downto 0) --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
+          out_destinationaddress2 : out std_logic_vector (3 downto 0); --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
           out_in_port           : out std_logic_vector (15 downto  0 )
     );
     end decoding_stage ; 
