@@ -37,19 +37,19 @@ else    ('0' & not source1 )           when alu_control = "00010" -- 2-for the (
 else    ('0' & source1 + 1 )           when alu_control = "00011" -- 3- for (inc) changes the flags later
 else    ('0' & source1 )               when alu_control = "00100" -- 4- for (mov) and (out) instructions 
 else    ('0' & source2 )               when alu_control = "00101" -- 5- for (in) and (LDM) inst
-else    ('0' & (source1 + source2))    when alu_control = "00110" -- 6- for the (add) and (addi) changes the flags later
+else    ('0' & source1 + source2)    when alu_control = "00110" -- 6- for the (add) and (addi) changes the flags later
 
 else    ('0' & (source1 - source2))    when (alu_control = "00111" and Src1BiggerThanSrc2 ='1')  -- 7- for the (sub) changes the flags later 
 else    ('1' & (source2 - source1))    when (alu_control = "00111" and Src1BiggerThanSrc2 ='0')  -- 7- sub with carry
 
 else    ('0' & (source1 and source2))  when alu_control = "01000" -- 8- for (and) operation and changes the flags later 
 else      (OTHERS => '0')              when alu_control = "01001" -- 9- for (push) and (pop) and (call) and (RET) and changes the stack address
-else    ('0' & (source1 + source2))    when alu_control = "01010" -- 10- for (ldd) and (std) doesn't change flags
+else    ('0' & source1 + source2)    when alu_control = "01010" -- 10- for (ldd) and (std) doesn't change flags
 else      (0=>flag_register_data_read(0), Others => '0')    when alu_control = "01011" -- 11- for (jz)  set the first bit with the zero flag 
 else      (0=>flag_register_data_read(1), Others => '0')    when alu_control = "01100" -- 12- for (jn)  set the first bit with the negative flag
 else      (0=>flag_register_data_read(2), Others => '0')    when alu_control = "01101" -- 13- for (jc)  set the first bit with the carry flag
 else      (0=>'1', Others => '0')                           when alu_control = "01110" -- 14- for (jmp) set the first bit with one 
-else    ('0' & (source2 + 7 ))          when alu_control = "01111"  -- 15- for (int) and changes the stack address and reserve the flags
+else    ('0' & source2 + 7 )          when alu_control = "01111"  -- 15- for (int) and changes the stack address and reserve the flags
 else      (OTHERS => '0')               when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address
 else      (OTHERS => '0');
     
