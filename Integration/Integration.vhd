@@ -95,7 +95,11 @@ signal out_wb_address :  std_logic_vector (3 downto 0)
 
 
 -----todo split the instruction after the decoding stage
------todo don't forget the in port 
+-----todo don't forget the in port
+
+---------------excute signals
+signal out_pc_selector_branch_ornot, : std_logic;
+signal out_branch_call_pc : std_logic_vecotor(31 downto 0);
 
 begin 
 
@@ -104,13 +108,13 @@ map_FetchStage : entity work.FetchStage port map (
 		clk =>clk , 
 		reset =>reset , 
 		return_flag , 
-		rti_flag , 
-		int_flag , 
-		call_flag , 
-		branch_flag in ,
+		rti_flag =>, 
+		int_flag =>, 
+		call_flag =>excution_to_buffer(1), 
+		branch_flag =>out_pc_selector_branch_ornot ,		---pc selector branch ornot
 		hlt_signal => decode_to_buffer(25), 			---decode_to_buffer here = controller signals
 		intrusction_size => decode_to_buffer(24), 		---decode_to_buffer here = controller signals
-		pc_branch_call , 
+		pc_branch_call =>out_branch_call_pc, 
 		pc_return_rti_int_reset : in std_logic_vector (31 downto 0);
 		out_pc => fetch_to_buffer(31 downto 0), 		
 		out_instruction => fetch_to_buffer(63 downto 32)
@@ -177,9 +181,19 @@ map_ExecuteStage : entity work.ExecutionStage port map (
 			rti_flag =>buffer_to_excute(9),
 
 			--- the out of these signals 
-			out_return_flag , out_call_flag ,out_register_write , out_write_Back_selector , out_mem_write , out_mem_read , out_output_signal : out std_logic;
-			out_return_int_rti_flush , out_call_flush                 : out std_logic;
-			out_push_flag , out_pop_flag , out_int_flag ,out_rti_flag : out std_logic;
+			out_return_flag =>excution_to_buffer(0), 
+			out_call_flag =>excution_to_buffer(1),
+			out_register_write =>excution_to_buffer(2), 
+			out_write_Back_selector =>excution_to_buffer(3), 
+			out_mem_write =>excution_to_buffer(4), 
+			out_mem_read =>excution_to_buffer(5), 
+			out_output_signal =>excution_to_buffer(6),
+			out_return_int_rti_flush =>excution_to_buffer(7), 
+			out_call_flush =>excution_to_buffer(8)  
+			out_push_flag =>excution_to_buffer(9), 
+			out_pop_flag =>excution_to_buffer(10), 
+			out_int_flag =>excution_to_buffer(11),
+			out_rti_flag =>excution_to_buffer(12),
 
 		--Signals important for the exxecution stage  ---------------------------------
 			wb_destination_selector =>buffer_to_excute(17) , 
@@ -198,17 +212,23 @@ map_ExecuteStage : entity work.ExecutionStage port map (
 			destinationaddress2 =>buffer_to_excute(129 downto 126), --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
 
 		--outputs--------------------------------------------
-			out_pc : out std_logic_vector (31 downto 0); -- passing the pc
-			branch_call_pc : out  std_logic_vector (31 downto 0); --is taken from data1
-			wb_address     : out  std_logic_vector (3 downto 0); --either destinationadd1 or destinationadd2 
-			stack_address  : out  std_logic;
-			pc_selector_branch_ornot : out  std_logic;--out of an and gate 
-			result      : out std_logic_vector (15 downto 0); --output of the alu
-			write_data  : out std_logic_vector (15 downto 0) --the data passed to the memory either src1 or src2
+			out_pc =>excution_to_buffer(44 downto 13), 		-- passing the pc
+			branch_call_pc =>out_branch_call_pc, 			--is taken from data1
+			wb_address =>excution_to_buffer(81 downto 78),    			--either destinationadd1 or destinationadd2 
+			stack_address =>excution_to_buffer(61),
+			pc_selector_branch_ornot =>out_pc_selector_branch_ornot,	--out of an and gate 
+			result =>excution_to_buffer(60 downto 45),     				--output of the alu
+			write_data =>excution_to_buffer(77 downto 62)				--the data passed to the memory either src1 or src2
 	    );
 
-	---------bufferrrrrrrrrrrrr
 
+	map_Stage_excute_memoy_Buffer : entity work.StageBuffer generic map (82) port map (
+		 clk => clk,
+		 rst => reset,
+		 en => '1',
+		 d => excution_to_buffer,  
+		 q => buffer_to_memory
+		);
 ----------------------------------------------------------------------------------------------------------------integ-memory-wb
 map_MemoryStage : entity work.MemoryStage port map (
 		clk => clk,
