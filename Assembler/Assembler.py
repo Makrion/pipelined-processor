@@ -37,9 +37,11 @@ for line in assembly:
 
   elif line[0]=="not":
     instrc+="000011"
-    dst ="000"+decimalToBinary(int(line[1][1:]))
-    dst=dst[len(dst)-3:]
-    instrc+=3*dst+"01"
+    reg_num = decimalToBinary(int(line[1][1:]))
+    if(len(reg_num) < 3):
+      reg_num = ("0")*(3-len(reg_num))+reg_num
+    dst = "0"+reg_num+"000"+reg_num
+    instrc+=dst
 
   elif line[0]=="inc":
     instrc+="000100"
@@ -50,7 +52,7 @@ for line in assembly:
     instrc+=dst
 
   elif line[0]=="out":
-    instrc+="000100"
+    instrc+="000101"
     reg_num = decimalToBinary(int(line[1][1:]))
     if(len(reg_num) < 3):
       reg_num = ("0")*(3-len(reg_num))+reg_num
@@ -58,7 +60,7 @@ for line in assembly:
     instrc+=dst
 
   elif line[0]=="in":
-    instrc+="000100"
+    instrc+="000110"
     reg_num = decimalToBinary(int(line[1][1:]))
     if(len(reg_num) < 3):
       reg_num = ("0")*(3-len(reg_num))+reg_num

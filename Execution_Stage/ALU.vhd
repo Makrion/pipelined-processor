@@ -93,6 +93,7 @@ else                     '0' ; -- it doesn't matter here because the enable will
 flag_register_data_write(2) <= '1'        when alu_control = "00001"  -- 1-for (setc) we will change the carry flag
 else               temp_result(16)        when alu_control = "00110"  -- 6- for the (add) and (addi) changes the flags (zero and negative and carry)               
 else               temp_result(16)        when alu_control = "00111"  -- 7-for (sub) changes (zero and negative and carry)
+else               temp_result(16)        when alu_control = "00011"  -- 3-for (inc) changes (zero and negative and carry)
 else    flag_register_data_read(5)        when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address (writes in the register )          
 else    flag_register_data_read(2) ; -- in any other case i return the carry i read 
 
