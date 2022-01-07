@@ -1,14 +1,23 @@
+
 library ieee ; 
 use ieee.std_logic_1164.all ;
 
 Entity decoding_stage is
-    port( instruction       : in std_logic_vector(31 downto 0);
+    port( 
+          in_port           : in std_logic_vector (15 downto  0 );
+          pc                : in std_logic_vector(31 downto 0);
+          instruction       : in std_logic_vector(31 downto 0);
           clk ,reset     : in std_logic ;  
           wb_data           : in std_logic_vector (15 downto  0 );
           Register_write : in std_logic ; -- flag to write data or not (1 if the intsturction will write back to the registers)
           WB_address     : in std_logic_vector(2 downto 0); --write back address ; 
           data1,data2       : out std_logic_vector(15 downto  0 );
-          signals        : out std_logic_vector(25 downto 0)
+          signals        : out std_logic_vector(25 downto 0);
+          out_pc                : out std_logic_vector(31 downto 0);
+          out_offset  : out std_logic_vector (15 downto 0); --goes into a mux that decide which is source2 {from [0,15]}
+          out_destinationaddress1 : out std_logic_vector (3 downto 0); --bits form [0,3] to decide the destination with a mux
+          out_destinationaddress2 : out std_logic_vector (3 downto 0); --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
+          out_in_port           : out std_logic_vector (15 downto  0 )
     );
     end decoding_stage ; 
 
@@ -56,7 +65,11 @@ Architecture decoding_stage_imp of decoding_stage is
         signals<=signals_output; 
 
 
-	
+        out_pc <=pc;              
+        out_offset <= instruction(15 downto 0);
+        out_destinationaddress1 <= instruction(3 downto 0);
+        out_destinationaddress2 <= instruction(19 downto 16);
+        out_in_port <= in_port;
 
 	
 end decoding_stage_imp;
