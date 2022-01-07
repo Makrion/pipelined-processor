@@ -154,7 +154,7 @@ for line in assembly:
     if(len(src_1) < 4):
       src_1 = "0"+("0")*(3-len(src_1))+src_1
 
-    immmediate = decimalToBinary(int(line[3][1:],16))
+    immmediate = decimalToBinary(int(line[3],16))
     if(len(immmediate) < 16):
       immmediate = ("0")*(16-len(immmediate))+immmediate
 
@@ -188,7 +188,7 @@ for line in assembly:
 
     src_1 ="0000"
 
-    immmediate = decimalToBinary(int(line[2][1:],16))
+    immmediate = decimalToBinary(int(line[2],16))
     if(len(immmediate) < 16):
       immmediate = ("0")*(16-len(immmediate))+immmediate
 
@@ -198,7 +198,8 @@ for line in assembly:
     instrc=str(num)+": "+immmediate
 
   elif line[0]=="ldd":
-    
+    instrc+="101111"
+
     dst = decimalToBinary(int(line[1][1:]))
     if(len(dst) < 4):
       dst = "0"+("0")*(3-len(dst))+dst
@@ -207,7 +208,7 @@ for line in assembly:
     if(len(src_1) < 4):
       src_1 = "0"+("0")*(3-len(src_1))+src_1
 
-    immmediate = decimalToBinary(int(line[2][1:],16))
+    immmediate = decimalToBinary(int(line[2],16))
     if(len(immmediate) < 16):
       immmediate = ("0")*(16-len(immmediate))+immmediate
 
@@ -218,7 +219,8 @@ for line in assembly:
 
   
   elif line[0]=="std":
-    
+    instrc+="110000"
+
     src_2 = decimalToBinary(int(line[3][1:]))
     if(len(src_2) < 4):
       src_2 = "0"+("0")*(3-len(src_2))+src_2
@@ -227,7 +229,7 @@ for line in assembly:
     if(len(src_1) < 4):
       src_1 = "0"+("0")*(3-len(src_1))+src_1
 
-    immmediate = decimalToBinary(int(line[2][1:],16))
+    immmediate = decimalToBinary(int(line[2],16))
     if(len(immmediate) < 16):
       immmediate = ("0")*(16-len(immmediate))+immmediate
 
@@ -317,7 +319,7 @@ for line in assembly:
   print(line)
   print(instrc)
   bin_code.write(instrc+"\n")
-  print("a7a: "+str(num))
+  print("num= "+str(num))
   num+=1
 
 

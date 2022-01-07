@@ -28,3 +28,7 @@ out r6
 mov r1 r7
 .org f00
 mov r1 r7
+iadd r0 r0 A012
+LDM  r1 ffff
+ldd r6 f0f0(r0)
+std r6 f0f0(r1)
