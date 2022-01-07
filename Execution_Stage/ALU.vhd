@@ -16,11 +16,7 @@ Entity Alu is
 
     );
 end entity Alu;
--- F<=  A(14 downto 0) & '0'   when S0='0' and S1='0'
--- else A(14 downto 0) & A(15) when S0='1' and S1='0'
--- else A(14 downto 0) & Cin   when S0='0' and S1='1'
--- else x"0000"                when S0='1' and S1='1'
--- else A;
+
 
 
 Architecture arch_Alu of Alu is 
@@ -101,6 +97,7 @@ flag_register_data_write(1) <=  temp_result(15)    when alu_control = "00010"  -
 else                            temp_result(15)    when alu_control = "00011"  -- 3- for (inc) changes the flags (zero and negative)
 else                            temp_result(15)    when alu_control = "00110"  -- 6- for the (add) and (addi) changes the flags (zero and negative and carry)
 else                            temp_result(15)    when alu_control = "00111"  -- 7-for (sub) changes (zero and negative and carry)
+else                            '1'               (when alu_control = "00111" and  Src1BiggerThanSrc2 ='0')   -- 7-for (sub) changes (zero and negative and carry)
 else                            temp_result(15)    when alu_control = "01000"  -- 8- for (and) operation and changes the flags (zero and negative)
 else                 flag_register_data_read(4)    when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address (writes in the register )   
 else                            flag_register_data_read(1) ;

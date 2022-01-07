@@ -1,0 +1,139 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage
+Ealu
+Z1 w1641393678
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/ALU.vhd
+Z8 FD:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/ALU.vhd
+l0
+L6
+VZkCV2jKT=VUjlH2M9ESJ_3
+!s100 9=F9V<hGTH>Q24NQoOM;c1
+Z9 OV;C;10.4d;61
+32
+Z10 !s110 1641500546
+!i10b 1
+Z11 !s108 1641500546.000000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/ALU.vhd|
+Z13 !s107 D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/ALU.vhd|
+!i113 1
+Z14 o-work work -2002 -explicit
+Z15 tExplicit 1
+Aarch_alu
+R2
+R3
+R4
+R5
+R6
+Z16 DEx4 work 3 alu 0 22 ZkCV2jKT=VUjlH2M9ESJ_3
+l29
+L26
+V[?_8iRjM=MQ8G=5inQ55Y0
+!s100 L?M<Uoi_k7dn3SFFV16OI1
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Edff
+Z17 w1641477626
+R5
+R6
+R0
+Z18 8D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Flags_reg.vhd
+Z19 FD:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Flags_reg.vhd
+l0
+L8
+V=R_ER<mHLo[jjm];8B[=H1
+!s100 ^a_>bJB7PGgPAM0HMm?d93
+R9
+32
+Z20 !s110 1641500547
+!i10b 1
+R11
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Flags_reg.vhd|
+Z22 !s107 D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Flags_reg.vhd|
+!i113 1
+R14
+R15
+Adff_imp
+R5
+R6
+Z23 DEx4 work 3 dff 0 22 =R_ER<mHLo[jjm];8B[=H1
+l19
+L17
+Z24 VREbcLRo@MYZF08Z71@lbd3
+Z25 !s100 a_m`OIAmX2n9KQTA6AN@C1
+R9
+32
+R20
+!i10b 1
+R11
+R21
+R22
+!i113 1
+R14
+R15
+Eexecutionstage
+Z26 w1641493972
+R4
+R5
+R6
+R0
+Z27 8D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Execution_stage.vhd
+Z28 FD:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Execution_stage.vhd
+l0
+L5
+V:ADQ[8FF5iTjgXQZnFzQn1
+!s100 bPDkm5^6U=SjYAYLN=^]M1
+R9
+32
+R10
+!i10b 1
+R11
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Execution_stage.vhd|
+Z30 !s107 D:/f_yagd3an/3year_material/first_semster/Architecture_project/pipelined-processor/Execution_Stage/Execution_stage.vhd|
+!i113 1
+R14
+R15
+Aarch_executionstage
+R23
+R2
+R3
+R16
+R4
+R5
+R6
+DEx4 work 14 executionstage 0 22 :ADQ[8FF5iTjgXQZnFzQn1
+l58
+L48
+VGCo2[eM@]C<4fMj?YDUl21
+!s100 oOCTcb3e1Ei1cGHaDMlJk0
+R9
+32
+R10
+!i10b 1
+R11
+R29
+R30
+!i113 1
+R14
+R15
