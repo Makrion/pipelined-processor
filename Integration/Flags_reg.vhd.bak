@@ -5,16 +5,16 @@ use ieee.std_logic_1164.all ;
 -- control is the flag_reg_control from alu
 -- d is the flag reg data write  (three bits)
 -- q is the flag reg data read  (six bits)
-Entity myDFF is 
+Entity DFF2 is 
 port( clk , flag_register_reset ,  enable , control: in std_logic ; 
 	 d         : in std_logic_vector (2 downto 0); 
 	 q         : out std_logic_vector(5 downto 0)); 
 	 
-end myDFF ; 
+end DFF2 ; 
 
 
 
-Architecture DFF_imp of myDFF is 
+Architecture DFF_imp of DFF2 is 
  
 begin 
 	process(clk ,flag_register_reset) 

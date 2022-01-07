@@ -7,18 +7,7 @@ port(
         out_port : out std_logic_vector (15 downto 0);
 		in_port	: in std_logic_vector (15 downto 0);
 
--------------------------------------------------------------------temporary ports to be deleted when we finish integerating all stages
-	register_write  , write_Back_selector , output_signal , return_int_rti_flush : in std_logic;
-	wb_address : in std_logic_vector (3 downto 0);
-	call_flag , return_flag , mem_write , mem_read , int_flag , rti_flag , pop_flag , push_flag , stack_add : in std_logic;
-	pc : in std_logic_vector (31 downto 0);
-	result , write_data  : in std_logic_vector (15 downto 0);
-
-	out_return_int_rti_flush : out std_logic;
-	out_return_flag , out_int_flag , out_rti_flag: out std_logic;
-	out_pc : out std_logic_vector (31 downto 0);
-
-	out_stack_wb : out std_logic        --------------------------------------------------------(we don't use it) revise it later
+		out_stack_wb : out std_logic        --------------------------------------------------------(we don't use it) revise it later
 -------------------------------------------------------------------temporary ports to be deleted when we finish integerating all stages
     ); 
 	 

@@ -108,7 +108,7 @@ Entity ExecutionStage is
     stack_address                 => stack_address 
    );
 
-   map_flagReg : entity work.myDFF port map (
+   map_flagReg : entity work.DFF2 port map (
     clk                 => clk,
     flag_register_reset => reset,
     enable              => flag_register_enable,         
