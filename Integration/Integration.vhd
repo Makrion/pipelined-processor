@@ -98,8 +98,15 @@ signal out_wb_address :  std_logic_vector (3 downto 0)
 -----todo don't forget the in port
 
 ---------------excute signals
-signal out_pc_selector_branch_ornot, : std_logic;
+signal out_pc_selector_branch_ornot : std_logic;
 signal out_branch_call_pc : std_logic_vecotor(31 downto 0);
+
+---------------memory signals
+signal out_mem_return_int_rti_flush : std_logic;
+signal out_mem_return_flag : std_logic;
+signal out_mem_int_flag : std_logic;
+signal out_mem_rti_flag : std_logic;
+signal out_mem_pc_return_rti_int_reset : std_logic_vector(31 downto 0);
 
 begin 
 
@@ -107,22 +114,23 @@ begin
 map_FetchStage : entity work.FetchStage port map (
 		clk =>clk , 
 		reset =>reset , 
-		return_flag , 
-		rti_flag =>, 
-		int_flag =>, 
+		return_flag =>out_mem_return_flag, 
+		rti_flag =>out_mem_rti_flag, 
+		int_flag =>out_mem_int_flag, 
 		call_flag =>excution_to_buffer(1), 
 		branch_flag =>out_pc_selector_branch_ornot ,		---pc selector branch ornot
 		hlt_signal => decode_to_buffer(25), 			---decode_to_buffer here = controller signals
 		intrusction_size => decode_to_buffer(24), 		---decode_to_buffer here = controller signals
 		pc_branch_call =>out_branch_call_pc, 
-		pc_return_rti_int_reset : in std_logic_vector (31 downto 0);
+		pc_return_rti_int_reset =>out_mem_pc_return_rti_int_reset,
 		out_pc => fetch_to_buffer(31 downto 0), 		
 		out_instruction => fetch_to_buffer(63 downto 32)
 		);
 
 map_Stage_fetch_decode_Buffer : entity work.StageBuffer generic map (64) port map (
 		 clk => clk,
-		 rst => reset or decode_to_buffer(5) or '0', ----todo add pc selector (branch or not) ---decode_to_buffer here = controller signals
+		 ---			 flush from controler	branch ornot					call flush				return_int_rti flush from ex	return_int_rti flush from mem
+		 rst => reset or decode_to_buffer(5) or out_pc_selector_branch_ornot or buffer_to_excute(23) or buffer_to_excute(22)  or 		buffer_to_memory(7) ,	----todo add pc selector (branch or not) ---decode_to_buffer here = controller signals
 		 en => (not decode_to_buffer(25)),			---decode_to_buffer here = controller signals
 		 d => fetch_to_buffer,  
 		 q => buffer_to_decode
@@ -189,7 +197,7 @@ map_ExecuteStage : entity work.ExecutionStage port map (
 			out_mem_read =>excution_to_buffer(5), 
 			out_output_signal =>excution_to_buffer(6),
 			out_return_int_rti_flush =>excution_to_buffer(7), 
-			out_call_flush =>excution_to_buffer(8)  
+			out_call_flush =>excution_to_buffer(8),  
 			out_push_flag =>excution_to_buffer(9), 
 			out_pop_flag =>excution_to_buffer(10), 
 			out_int_flag =>excution_to_buffer(11),
@@ -234,23 +242,23 @@ map_MemoryStage : entity work.MemoryStage port map (
 		clk => clk,
 		reset => reset,  
 		--------------------------------temporary signals to be deleted when we finish integerating all stages
-		register_write => register_write, 
-		write_Back_selector => write_Back_selector, 
-		output_signal => output_signal, 
-		return_int_rti_flush => return_int_rti_flush,
-		wb_address => wb_address,
-		call_flag => call_flag, 
-		return_flag => return_flag,
-		mem_write => mem_write, 
-		mem_read => mem_read,
-		int_flag => int_flag, 
-		rti_flag => rti_flag, 
-		pop_flag => pop_flag,
-		push_flag => push_flag, 
-		stack_add => stack_add,
-		pc => pc, 
-		result => result, 
-		write_data => write_data,
+		register_write => buffer_to_memory(2) , 
+		write_Back_selector => buffer_to_memory(3) , 
+		output_signal => buffer_to_memory(6), 
+		return_int_rti_flush => buffer_to_memory(7) ,
+		wb_address => buffer_to_memory(81 downto 78) ,
+		call_flag => buffer_to_memory(1) , 
+		return_flag => buffer_to_memory(0),
+		mem_write => buffer_to_memory(4) , 
+		mem_read => buffer_to_memory(5) ,
+		int_flag => buffer_to_memory(11)  ,
+		rti_flag => buffer_to_memory(12)  ,
+		pop_flag => buffer_to_memory(10) ,
+		push_flag => buffer_to_memory(9) , 
+		stack_add => buffer_to_memory(61) ,
+		pc => buffer_to_memory(44 downto 13), 
+		result => buffer_to_memory(60 downto 45), 
+		write_data => buffer_to_memory(77 downto 62),
 		--------------------------------buffer signals
 		out_register_write => memory_to_buffer(36),
 		out_write_Back_selector => memory_to_buffer(37),
@@ -260,11 +268,11 @@ map_MemoryStage : entity work.MemoryStage port map (
 		out_result => memory_to_buffer(31 downto 16),
 		--------------------------------back signals
 		--------------------------------temporary signals to be deleted when we finish integerating all stages
-		out_return_int_rti_flush => out_return_int_rti_flush,
-		out_return_flag => out_return_flag,
-		out_int_flag => out_int_flag, 
-		out_rti_flag => out_rti_flag,
-		out_pc => out_pc
+		out_return_int_rti_flush => out_mem_return_int_rti_flush,
+		out_return_flag => out_mem_return_flag,
+		out_int_flag => out_mem_int_flag, 
+		out_rti_flag => out_mem_rti_flag,
+		out_pc => out_mem_pc_return_rti_int_reset
 		);
 
 map_Stage_mem_wb_Buffer : entity work.StageBuffer generic map (40) port map (
@@ -287,7 +295,7 @@ map_WriteBackStage : entity work.WriteBackStage port map (
 	    read_data => buffer_to_wb(15 downto 0),
 		stack_wb => '0',         --------------------------------------------------------(we don't use it) revise it later
 		out_out_port => out_port,
-		--------------------------------temporary signals to be deleted when we finish integerating all stages
+
 		out_wb_data => out_wb_data,
 		out_register_write => out_register_write,
 		out_stack_wb => out_stack_wb,        --------------------------------------------------------(we don't use it) revise it later
