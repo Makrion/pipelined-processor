@@ -1,0 +1,12 @@
+// memory data file (do not edit the following line - required for mem load use)
+// instance=/mips/insrcMem/ram
+// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1
+5: 0000000000000000
+6: 0001000111000111
+7: 0001000000000000
+8: 0001000011000011
+9: 0001000110000110
+10: 1001110111000000
+11: 0000000000000001
+3840: 1001110111000000
+3841: 0000000000000001
