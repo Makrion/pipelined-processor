@@ -8,6 +8,7 @@ use work.all ;
 Entity Register_file is
 
 port(
+reset : in std_logic ;
 WB_data : in std_logic_vector (15 downto  0 );--write back data  
 data1_add,data2_add   : in    std_logic_vector (2  downto  0 ); --3 bits for 8 registers 
 clk      : in std_logic ; 
@@ -58,14 +59,14 @@ begin
 		
 		
 		-- Writing 
-		DDF0_output1: DFF     port map (clk,'0',WB_decoder(0),WB_data,DF0);  -- D Flip Flop 0 	
-		DDF1_output1: DFF     port map (clk,'0',WB_decoder(1),WB_data,DF1);  -- D Flip Flop 1
-		DDF2_output1: DFF     port map (clk,'0',WB_decoder(2),WB_data,DF2);  -- D Flip Flop 2 
-		DDF3_output1: DFF     port map (clk,'0',WB_decoder(3),WB_data,DF3);  -- D Flip Flop 3 
-		DDF4_output1: DFF     port map (clk,'0',WB_decoder(4),WB_data,DF4);  -- D Flip Flop 4 	
-		DDF5_output1: DFF     port map (clk,'0',WB_decoder(5),WB_data,DF5);  -- D Flip Flop 5
-		DDF6_output1: DFF     port map (clk,'0',WB_decoder(6),WB_data,DF6);  -- D Flip Flop 6 
-		DDF7_output1: DFF     port map (clk,'0',WB_decoder(7),WB_data,DF7);  -- D Flip Flop 7 
+		DDF0_output1: DFF     port map (clk,reset,WB_decoder(0),WB_data,DF0);  -- D Flip Flop 0 	
+		DDF1_output1: DFF     port map (clk,reset,WB_decoder(1),WB_data,DF1);  -- D Flip Flop 1
+		DDF2_output1: DFF     port map (clk,reset,WB_decoder(2),WB_data,DF2);  -- D Flip Flop 2 
+		DDF3_output1: DFF     port map (clk,reset,WB_decoder(3),WB_data,DF3);  -- D Flip Flop 3 
+		DDF4_output1: DFF     port map (clk,reset,WB_decoder(4),WB_data,DF4);  -- D Flip Flop 4 	
+		DDF5_output1: DFF     port map (clk,reset,WB_decoder(5),WB_data,DF5);  -- D Flip Flop 5
+		DDF6_output1: DFF     port map (clk,reset,WB_decoder(6),WB_data,DF6);  -- D Flip Flop 6 
+		DDF7_output1: DFF     port map (clk,reset,WB_decoder(7),WB_data,DF7);  -- D Flip Flop 7 
 		
 		
 		TSB0:  TSB      port map (DF0,data1_decoder(0),data1); -- Tri state buffer data1
