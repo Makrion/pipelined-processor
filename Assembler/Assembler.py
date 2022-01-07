@@ -11,6 +11,8 @@ data_mem= open(cwd+"\\Assembler\\data.mem","w")
 
 bin_code.write("// memory data file (do not edit the following line - required for mem load use)\n// instance=/mips/insrcMem/ram\n// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1\n"
 )
+data_mem.write("// memory data file (do not edit the following line - required for mem load use)\n// instance=/mips/insrcMem/ram\n// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1\n"
+)
 data_mem_count=0
 data_mem_num=0
 write_in_data_mem=False
@@ -70,15 +72,15 @@ for line in assembly:
   elif line[0]=="mov":
     instrc+="100111"
    
-    dst = decimalToBinary(int(line[1][1:]))
+    dst = decimalToBinary(int(line[2][1:]))
     if(len(dst) < 4):
       dst = "0"+("0")*(3-len(dst))+dst
 
     src_2 = "0000"
 
-    src_1 = decimalToBinary(int(line[2][1:]))
+    src_1 = decimalToBinary(int(line[1][1:]))
     if(len(src_1) < 4):
-      src_1 = "0"+("0")*(3-len(dst))+src_1
+      src_1 = "0"+("0")*(3-len(src_1))+src_1
 
     instrc+=src_1+src_2+"00"
     bin_code.write(instrc+"\n")

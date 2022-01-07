@@ -23,9 +23,9 @@ VYJlSRjZ8=E@Re13GAadJ^1
 !s100 0GNiLYoXnMa5EUC3]@U8Q0
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1641583138
+Z8 !s110 1641592966
 !i10b 1
-Z9 !s108 1641583138.000000
+Z9 !s108 1641592966.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/AddStackPointer.vhd|
 Z11 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/AddStackPointer.vhd|
 !i113 1
@@ -51,7 +51,7 @@ R11
 R12
 R13
 Ealu
-Z15 w1641583081
+Z15 w1641584638
 Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R1
@@ -83,8 +83,8 @@ R3
 Z22 DEx4 work 3 alu 0 22 7IM[n>ah[VgjDR37a9>Ld2
 l29
 L26
-V:jOfMLCXSGInLET6hWZ790
-!s100 ]Y61oL6^zI@Pc1oKzMHih0
+VG?^4gHI81D0ZT32gRKFUM1
+!s100 BOcc`Sh404>hbkf9ghAIz2
 R7
 32
 R8
@@ -96,12 +96,12 @@ R21
 R12
 R13
 Econtroller
-R0
+Z23 w1641592831
 R2
 R3
 R4
-Z23 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd
-Z24 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd
+Z24 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd
+Z25 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd
 l0
 L4
 VV26G`VZSg[<M6_zhGgNG@3
@@ -111,8 +111,8 @@ R7
 R8
 !i10b 1
 R9
-Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd|
-Z26 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd|
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd|
+Z27 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Controller.vhd|
 !i113 1
 R12
 R13
@@ -122,15 +122,15 @@ R3
 DEx4 work 10 controller 0 22 V26G`VZSg[<M6_zhGgNG@3
 l19
 L17
-V[=1_@C:HNB<OfFSTaRG:R3
-!s100 1UY:Hn2^BXTF[ODiD<MV?0
+VQi4CL2ZR4dYSeIbjXQPC=0
+!s100 MhTb1Y[]<WWHTc2TMgMX[3
 R7
 32
 R8
 !i10b 1
 R9
-R25
 R26
+R27
 !i113 1
 R12
 R13
@@ -140,15 +140,15 @@ R1
 R2
 R3
 R4
-Z27 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DataMemory.vhd
-Z28 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DataMemory.vhd
+Z28 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DataMemory.vhd
+Z29 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DataMemory.vhd
 l0
 L15
 Vm^4LZ@IcA[ZWS<QG>TQoM0
 !s100 cIjQ>lhb2zY_gNkI2K16B2
 R7
 32
-Z29 !s110 1641583139
+R8
 !i10b 1
 R9
 Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DataMemory.vhd|
@@ -167,7 +167,7 @@ V0OMbWzLkJbAH_a_^Jnb`32
 !s100 Lla`iLzWm1AP]XD]EzPUE1
 R7
 32
-R29
+R8
 !i10b 1
 R9
 R30
@@ -188,11 +188,11 @@ V4OMLZiQ`^]R>=e3DVS1Ul2
 !s100 H88J11;^H^PDCJL`81F;83
 R7
 32
-R29
+R8
 !i10b 1
-Z36 !s108 1641583139.000000
-Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decoder.vhd|
-Z38 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decoder.vhd|
+R9
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decoder.vhd|
+Z37 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decoder.vhd|
 !i113 1
 R12
 R13
@@ -206,50 +206,50 @@ Vz<bWgfXQ:k2L0E@L=64M]0
 !s100 84@>f9S`Bk_b64K_8QlGB2
 R7
 32
-R29
+R8
 !i10b 1
+R9
 R36
 R37
-R38
 !i113 1
 R12
 R13
 Edecoding_stage
-Z39 w1641574710
+Z38 w1641574710
 R2
 R3
 R4
-Z40 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd
-Z41 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd
+Z39 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd
+Z40 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd
 l0
 L5
 Vb@9[kB<beUcfVZ219aB`g0
 !s100 YGESj^WVHiz?gB_JW@=mP3
 R7
 32
-R29
+R8
 !i10b 1
-R36
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd|
-Z43 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd|
+R9
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd|
+Z42 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Decodingstage.vhd|
 !i113 1
 R12
 R13
 Adecoding_stage_imp
 R2
 R3
-Z44 DEx4 work 14 decoding_stage 0 22 b@9[kB<beUcfVZ219aB`g0
+Z43 DEx4 work 14 decoding_stage 0 22 b@9[kB<beUcfVZ219aB`g0
 l54
 L26
 VL?AVFQhefmM3gWO`h3c_l1
 !s100 NiN;ZHUSagEmLYOSHB7fD0
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R41
 R42
-R43
 !i113 1
 R12
 R13
@@ -258,19 +258,19 @@ R33
 R2
 R3
 R4
-Z45 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd
-Z46 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd
+Z44 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd
+Z45 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd
 l0
 L3
 VD?m_B3_]h7:9NTVJ`_oi41
 !s100 `d?<:_=P6A;YG^_I=jZ@Q2
 R7
 32
-R29
+R8
 !i10b 1
-R36
-Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd|
-Z48 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd|
+R9
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd|
+Z47 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/DFF.vhd|
 !i113 1
 R12
 R13
@@ -284,11 +284,11 @@ VZfd7;:cM>82Ph1h50n]a^1
 !s100 6kJ^UGDP]aBYC]ToYi9WB3
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R46
 R47
-R48
 !i113 1
 R12
 R13
@@ -296,20 +296,20 @@ Edff2
 R2
 R3
 32
-Z49 !s110 1641519042
+Z48 !s110 1641519042
 !i10b 1
-Z50 w1641519039
+Z49 w1641519039
 R4
-Z51 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd
-Z52 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd
+Z50 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd
+Z51 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd
 l0
 L8
 V6hjI5Z0LdG[f_2Mb=@EY40
 !s100 A;<MCaElka>bkO7X<C86:2
 R7
-Z53 !s108 1641519042.000000
-Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd|
-Z55 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd|
+Z52 !s108 1641519042.000000
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd|
+Z54 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Flags_reg.vhd|
 !i113 1
 R12
 R13
@@ -318,126 +318,126 @@ R2
 R3
 DEx4 work 4 dff2 0 22 6hjI5Z0LdG[f_2Mb=@EY40
 32
-R49
+R48
 !i10b 1
 l19
 L17
 Voi7[iGSNXJ6D:]]D^`9`S2
 !s100 =S5<MXXYE`7:X1gL4D:G23
 R7
+R52
 R53
 R54
-R55
 !i113 1
 R12
 R13
 Eexecutionstage
-Z56 w1641519131
+Z55 w1641519131
 R1
 R2
 R3
 R4
-Z57 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd
-Z58 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd
+Z56 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd
+Z57 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd
 l0
 L5
 VQh;eNBRn1CV>jYTKWQ9a41
 !s100 bPDkm5^6U=SjYAYLN=^]M1
 R7
 32
-R29
+R8
 !i10b 1
-R36
-Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd|
-Z60 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd|
+R9
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd|
+Z59 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Execution_stage.vhd|
 !i113 1
 R12
 R13
 Aarch_executionstage
-Z61 DEx4 work 5 mydff 0 22 3V4_f^8@e2W9Ecln;[35;3
+Z60 DEx4 work 5 mydff 0 22 3V4_f^8@e2W9Ecln;[35;3
 R16
 R17
 R22
 R1
 R2
 R3
-Z62 DEx4 work 14 executionstage 0 22 Qh;eNBRn1CV>jYTKWQ9a41
+Z61 DEx4 work 14 executionstage 0 22 Qh;eNBRn1CV>jYTKWQ9a41
 l58
 L48
 VPmA[fM2W5<ZO66JHEeCO^1
 !s100 E`D1IcaaC:M@k>LO1TdVO0
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R58
 R59
-R60
 !i113 1
 R12
 R13
 Efetchstage
-Z63 w1640581884
+Z62 w1640581884
 R1
 R2
 R3
 R4
-Z64 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd
-Z65 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd
+Z63 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd
+Z64 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd
 l0
 L5
 Vc>T7n;O64Sh?cdCj]mQM40
 !s100 `Ym97Dmf<H?_>GzFLeIze2
 R7
 32
-R29
+R8
 !i10b 1
-R36
-Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd|
-Z67 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd|
+R9
+Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd|
+Z66 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/FetchStage.vhd|
 !i113 1
 R12
 R13
 Aarchfetchstage
-Z68 DEx4 work 17 instructionmemory 0 22 2nGVD2kC^RG<`]E09HIDh2
-Z69 DEx4 work 7 pclogic 0 22 ;^^b[JkZoce^EY[4V[_5E2
+Z67 DEx4 work 17 instructionmemory 0 22 2nGVD2kC^RG<`]E09HIDh2
+Z68 DEx4 work 7 pclogic 0 22 ;^^b[JkZoce^EY[4V[_5E2
 R1
 R2
 R3
-Z70 DEx4 work 10 fetchstage 0 22 c>T7n;O64Sh?cdCj]mQM40
+Z69 DEx4 work 10 fetchstage 0 22 c>T7n;O64Sh?cdCj]mQM40
 l26
 L24
 V0>C5@_2d`QoTHIiWJ4mY`2
 !s100 `4=K[b]`Q?6DhaR>5ScAR2
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R65
 R66
-R67
 !i113 1
 R12
 R13
 Einstructionmemory
-Z71 w1640581687
+Z70 w1640581687
 R1
 R2
 R3
 R4
-Z72 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd
-Z73 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd
+Z71 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd
+Z72 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd
 l0
 L5
 V2nGVD2kC^RG<`]E09HIDh2
 !s100 ZD111Xn32:6nSGU0zIc3Z3
 R7
 32
-R29
+R8
 !i10b 1
-R36
-Z74 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd|
-Z75 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd|
+R9
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd|
+Z74 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/InstructionMemory.vhd|
 !i113 1
 R12
 R13
@@ -445,50 +445,50 @@ Aarchinstructionmemory
 R1
 R2
 R3
-R68
+R67
 l14
 L11
 VJ`Z<X?k>n?d2Dd8bV6dI11
 !s100 24hV6mGanHKG9fDYQ`J7H1
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R73
 R74
-R75
 !i113 1
 R12
 R13
 Eintegration
-Z76 w1641519643
+Z75 w1641519643
 R2
 R3
 R4
-Z77 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd
-Z78 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd
+Z76 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd
+Z77 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd
 l0
 L4
 V82LbW[RaQ8:jj9i8Vk8jm0
 !s100 P5TFLdZI^B^9312OU9=kF3
 R7
 32
-R29
+R8
 !i10b 1
-R36
-Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd|
-Z80 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd|
+R9
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd|
+Z79 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Integration.vhd|
 !i113 1
 R12
 R13
 Aintegration
-Z81 DEx4 work 14 writebackstage 0 22 b;4k53Q3nI2fS2V>aMKNf3
-Z82 DEx4 work 11 memorystage 0 22 2cbOf@RbI?aW9U5B>MU052
-R62
-R44
-Z83 DEx4 work 11 stagebuffer 0 22 _R:diCcmFR<SMl4ED0NG93
+Z80 DEx4 work 14 writebackstage 0 22 b;4k53Q3nI2fS2V>aMKNf3
+Z81 DEx4 work 11 memorystage 0 22 2cbOf@RbI?aW9U5B>MU052
+R61
+R43
+Z82 DEx4 work 11 stagebuffer 0 22 _R:diCcmFR<SMl4ED0NG93
 R1
-R70
+R69
 R2
 R3
 DEx4 work 11 integration 0 22 82LbW[RaQ8:jj9i8Vk8jm0
@@ -498,11 +498,11 @@ V=5O6@aQoa@H`f13>DkPj61
 !s100 6SI`P;zM;0ja_NmW6Dm]i0
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R78
 R79
-R80
 !i113 1
 R12
 R13
@@ -512,103 +512,103 @@ R1
 R2
 R3
 R4
-Z84 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd
-Z85 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd
+Z83 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd
+Z84 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd
 l0
 L7
 V2cbOf@RbI?aW9U5B>MU052
 !s100 MS14iQ]^mg5LT@TB[mnhQ1
 R7
 32
-R29
+Z85 !s110 1641592967
 !i10b 1
-R36
-Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd|
-Z87 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd|
+Z86 !s108 1641592967.000000
+Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd|
+Z88 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/MemoryStage.vhd|
 !i113 1
 R12
 R13
 Aarchmemorystage
-Z88 DEx4 work 12 stackpointer 0 22 Sl6D=W92Efn<H<1QnH[jW1
-Z89 DEx4 work 15 substackpointer 0 22 zE5NETSQ_f2DmZZ0OnJFd3
+Z89 DEx4 work 12 stackpointer 0 22 Sl6D=W92Efn<H<1QnH[jW1
+Z90 DEx4 work 15 substackpointer 0 22 zE5NETSQ_f2DmZZ0OnJFd3
 R14
 R32
 R1
 R2
 R3
-R82
+R81
 l37
 L33
 VeYFLMNh8MK@oh[?`gieSV1
 !s100 n8W9JhLS_Ho4]`K^1e0J93
 R7
 32
-R29
+R85
 !i10b 1
-R36
 R86
 R87
+R88
 !i113 1
 R12
 R13
 Emydff
-Z90 w1641519115
+Z91 w1641519115
 R2
 R3
 R4
+R50
 R51
-R52
 l0
 L8
 V3V4_f^8@e2W9Ecln;[35;3
 !s100 =B1FFBdKd2`8lh2=;K>7a3
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R53
 R54
-R55
 !i113 1
 R12
 R13
 Adff_imp
 R2
 R3
-R61
+R60
 l19
 L17
 VhNULef[kbO1oE]GAz9zPe3
 !s100 >0R`8?J2DCAz<KeUcPj]F1
 R7
 32
-R29
+R8
 !i10b 1
-R36
+R9
+R53
 R54
-R55
 !i113 1
 R12
 R13
 Epclogic
-Z91 w1640571359
+Z92 w1640571359
 R1
 R2
 R3
 R4
-Z92 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd
-Z93 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd
+Z93 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd
+Z94 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd
 l0
 L5
 V;^^b[JkZoce^EY[4V[_5E2
 !s100 kZmP@4V^nJi6_gf8QjZGc3
 R7
 32
-R29
+R85
 !i10b 1
-R36
-Z94 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd|
-Z95 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd|
+R86
+Z95 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd|
+Z96 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/PCLogic.vhd|
 !i113 1
 R12
 R13
@@ -616,39 +616,39 @@ Aarchpclogic
 R1
 R2
 R3
-R69
+R68
 l24
 L22
 VFP`LT`<9fVWb7<2PP0^zC2
 !s100 j<_0F]02BYzh[O6n<d5Y30
 R7
 32
-R29
+R85
 !i10b 1
-R36
-R94
+R86
 R95
+R96
 !i113 1
 R12
 R13
 Eregister_file
-Z96 w1641574656
+Z97 w1641574656
 R2
 R3
 R4
-Z97 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd
-Z98 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd
+Z98 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd
+Z99 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd
 l0
 L8
 VZWnh?nzX7YXL:0[HKnVY53
 !s100 fOlNZh1nW<^lhYVG>X^OD1
 R7
 32
-R29
+R85
 !i10b 1
-R36
-Z99 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd|
-Z100 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd|
+R86
+Z100 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd|
+Z101 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Resgiter_file.vhd|
 !i113 1
 R12
 R13
@@ -662,11 +662,11 @@ VPmCHl6EYO`Z5=S]9g=:^B3
 !s100 VN^88lmWiQX5Z5Q25[WYK3
 R7
 32
-R29
+R85
 !i10b 1
-R36
-R99
+R86
 R100
+R101
 !i113 1
 R12
 R13
@@ -675,37 +675,37 @@ R0
 R2
 R3
 R4
-Z101 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd
-Z102 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd
+Z102 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd
+Z103 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd
 l0
 L6
 VSl6D=W92Efn<H<1QnH[jW1
 !s100 o6nJ7lU5iLU[W<F_?QafI3
 R7
 32
-R29
+R85
 !i10b 1
-R36
-Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd|
-Z104 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd|
+R86
+Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd|
+Z105 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StackPointer.vhd|
 !i113 1
 R12
 R13
 Aarchstackpointer
 R2
 R3
-R88
+R89
 l15
 L14
 Va2ThYzj;m?IU]gL9=JUnk3
 !s100 NK@Hz861alfDLmogMR0f@0
 R7
 32
-R29
+R85
 !i10b 1
-R36
-R103
+R86
 R104
+R105
 !i113 1
 R12
 R13
@@ -714,37 +714,37 @@ R0
 R2
 R3
 R4
-Z105 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd
-Z106 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd
+Z106 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd
+Z107 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd
 l0
 L3
 V_R:diCcmFR<SMl4ED0NG93
 !s100 iiKJQUDLFgEGWf4:c^01T0
 R7
 32
-R29
+R85
 !i10b 1
-R36
-Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd|
-Z108 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd|
+R86
+Z108 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd|
+Z109 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/StageBuffer.vhd|
 !i113 1
 R12
 R13
 Aarch_stagebuffer
 R2
 R3
-R83
+R82
 l14
 L12
 V?5o`^>Qb@3Bz2=Jd0j:Gg1
 !s100 YXIOC3C@]0c2RK9?Q63?A2
 R7
 32
-R29
+R85
 !i10b 1
-R36
-R107
+R86
 R108
+R109
 !i113 1
 R12
 R13
@@ -754,19 +754,19 @@ R1
 R2
 R3
 R4
-Z109 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd
-Z110 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd
+Z110 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd
+Z111 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd
 l0
 L7
 VzE5NETSQ_f2DmZZ0OnJFd3
 !s100 UB6FDFJo5SGRNQHVR2;`62
 R7
 32
-Z111 !s110 1641583140
+R85
 !i10b 1
-Z112 !s108 1641583140.000000
-Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd|
-Z114 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd|
+R86
+Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd|
+Z113 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/SubStackPointer.vhd|
 !i113 1
 R12
 R13
@@ -774,18 +774,18 @@ Aarchsubstackpointer
 R1
 R2
 R3
-R89
+R90
 l16
 L15
 V?V`gKi9bAW_1_oA3G^H811
 !s100 ?ce25AUJK90>@Pe;8O_Gj3
 R7
 32
-R111
+R85
 !i10b 1
+R86
 R112
 R113
-R114
 !i113 1
 R12
 R13
@@ -794,19 +794,19 @@ R33
 R2
 R3
 R4
-Z115 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd
-Z116 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd
+Z114 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd
+Z115 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd
 l0
 L6
 VcYhGm?EzKbmK`oDGgFHoK2
 !s100 mAcMR<]T<mUi0oLee<13T3
 R7
 32
-R111
+R85
 !i10b 1
-R112
-Z117 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd|
-Z118 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd|
+R86
+Z116 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd|
+Z117 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/Tri_state_buffer.vhd|
 !i113 1
 R12
 R13
@@ -820,11 +820,11 @@ VeBmUeT8ldNmE=Gd=M^Rc50
 !s100 =PWb7PiGnaClJI3<_>71g1
 R7
 32
-R111
+R85
 !i10b 1
-R112
+R86
+R116
 R117
-R118
 !i113 1
 R12
 R13
@@ -834,19 +834,19 @@ R1
 R2
 R3
 R4
-Z119 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd
-Z120 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd
+Z118 8D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd
+Z119 FD:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd
 l0
 L5
 Vb;4k53Q3nI2fS2V>aMKNf3
 !s100 LV`DF5SaH=JIK;WG0WGJC3
 R7
 32
-R111
+R85
 !i10b 1
-R112
-Z121 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd|
-Z122 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd|
+R86
+Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd|
+Z121 !s107 D:/programing/faculty of engineering/4_third year in cmp/first term/computer architecture/project/pipelined-processor/Integration/WriteBackStage.vhd|
 !i113 1
 R12
 R13
@@ -854,18 +854,18 @@ Aarchwritebackstage
 R1
 R2
 R3
-R81
+R80
 l36
 L32
-Z123 Vz_RJFKMPD5O9R3KTWZ<0d1
-Z124 !s100 Fk2kfn_[HWHY1RU67YzSe0
+Z122 Vz_RJFKMPD5O9R3KTWZ<0d1
+Z123 !s100 Fk2kfn_[HWHY1RU67YzSe0
 R7
 32
-R111
+R85
 !i10b 1
-R112
+R86
+R120
 R121
-R122
 !i113 1
 R12
 R13
