@@ -168,7 +168,7 @@ for line in assembly:
     instrc=str(num)+": "+immmediate
 
   elif line[0]=="push":
-    instrc+="000100"
+    instrc+="001100"
     reg_num = decimalToBinary(int(line[1][1:]))
     if(len(reg_num) < 3):
       reg_num = ("0")*(3-len(reg_num))+reg_num
@@ -176,7 +176,7 @@ for line in assembly:
     instrc+=dst
 
   elif line[0]=="pop":
-    instrc+="000100"
+    instrc+="001101"
     reg_num = decimalToBinary(int(line[1][1:]))
     if(len(reg_num) < 3):
       reg_num = ("0")*(3-len(reg_num))+reg_num
@@ -225,11 +225,11 @@ for line in assembly:
   elif line[0]=="std":
     instrc+="110000"
 
-    src_2 = decimalToBinary(int(line[3][1:]))
+    src_2 = decimalToBinary(int(line[1][1:]))
     if(len(src_2) < 4):
       src_2 = "0"+("0")*(3-len(src_2))+src_2
 
-    src_1 = decimalToBinary(int(line[1][1:]))
+    src_1 = decimalToBinary(int(line[3][1:]))
     if(len(src_1) < 4):
       src_1 = "0"+("0")*(3-len(src_1))+src_1
 
