@@ -287,7 +287,7 @@ for line in assembly:
 
   elif line[0]=="int":
     instrc+="010111"
-    reg_num = decimalToBinary(int(line[1][1:]))
+    reg_num = decimalToBinary(int(line[1]))
     if(len(reg_num) < 3):
       reg_num = ("0")*(3-len(reg_num))+reg_num
     dst = "0"+reg_num+"000"+reg_num

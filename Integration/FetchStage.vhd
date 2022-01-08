@@ -29,7 +29,7 @@ begin
 	pc_next_instruction <= std_logic_vector(unsigned((pc)) + 1) when(intrusction_size = '0')
 	else std_logic_vector(unsigned((pc)) + 2);
 
-	out_pc <= pc_next_instruction;
+	out_pc <= pc;
 
 	PROCESS(clk) IS
 		BEGIN

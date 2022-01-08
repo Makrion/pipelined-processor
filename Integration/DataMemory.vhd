@@ -18,6 +18,7 @@ ENTITY DataMemory IS
 		en_datain_32,en_dataout_32  : IN std_logic;
 		address : IN  std_logic_vector(19 DOWNTO 0);
 		datain_16  : IN  std_logic_vector(15 DOWNTO 0);
+		int_address  : IN  std_logic_vector(19 DOWNTO 0);
 		datain_32  : IN  std_logic_vector(31 DOWNTO 0);
 		dataout_16 : OUT std_logic_vector(15 DOWNTO 0);
 		dataout_32 : OUT std_logic_vector(31 DOWNTO 0));
@@ -46,7 +47,8 @@ ARCHITECTURE ARCHDataMemory OF DataMemory IS
 		dataout_16 <= ram(to_integer(unsigned(address))) when (Mem_read='1' and en_dataout_32 /= '1' and reset /= '1') 
 		else (others => 'X');
 --reading on the 32-bit path
-		dataout_32 <= ram(to_integer(unsigned((address)) - 1)) & ram(to_integer(unsigned(address)))  when (Mem_read='1' and en_dataout_32 = '1' and reset /= '1' ) 
+		dataout_32 <= ram(to_integer(unsigned((address)) - 1)) & ram(to_integer(unsigned(address)))  when (Mem_read='1' and en_dataout_32 = '1' and reset /= '1' and Mem_write /= '1') 
+		else ram(to_integer(unsigned((int_address)) - 1)) & ram(to_integer(unsigned(int_address)))  when (Mem_read='1' and en_dataout_32 = '1' and reset /= '1' and Mem_write = '1')
 		else ram(0) & ram(1) when (reset = '1') 
 		else (others => 'X');
 

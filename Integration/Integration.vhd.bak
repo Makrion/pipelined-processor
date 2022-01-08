@@ -124,7 +124,7 @@ fetch_buffer_en <= (not decode_to_buffer(25)); ---decode_to_buffer here = contro
 --			flush from controller		
 --removed or decode_to_buffer(5) for now causing and error to flush the buffer in the current instruction (fetch flush signal)	
 ---					branch ornot				call flush				return_int_rti flush from ex	return_int_rti flush from mem
-fetch_buffer_rst <=out_pc_selector_branch_ornot or buffer_to_excute(23) or buffer_to_excute(22) or buffer_to_memory(7);		
+fetch_buffer_rst <=out_pc_selector_branch_ornot or buffer_to_excute(23) or buffer_to_excute(22) 	 or buffer_to_memory(7);			;
 
 map_Stage_fetch_decode_Buffer : entity work.StageBuffer generic map (64) port map (
 		 clk => clk,
