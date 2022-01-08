@@ -32,7 +32,7 @@ end MemoryStage;
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Architecture ARCHMemoryStage of MemoryStage is
 signal or_to_en_datain_32 , or_to_en_dataout_32 : std_logic;
-signal mux_to_mem_address : std_logic_vector (19 downto 0);
+signal mux_to_mem_address,int_address : std_logic_vector (19 downto 0);
 signal add_to_mem_32_input , stackpointer_to_addstackpointer , addstackpointer_to_mux , subbstackpointer_to_stackpointer :std_logic_vector (31 downto 0);
 begin
 ---------------------------------------Signals that just passes to next stage-----------
@@ -50,8 +50,9 @@ else (x"0" & result);
 
 or_to_en_datain_32 <= (call_flag or int_flag);
 
-or_to_en_dataout_32 <= (return_flag or rti_flag);
+or_to_en_dataout_32 <= (return_flag or rti_flag or int_flag);
 
+int_address <= (x"0" & result);
 out_result <= result;
 out_return_flag <= return_flag;
 out_int_flag <= int_flag;
@@ -69,7 +70,8 @@ map_datamemory : entity work.DataMemory port map (
 		datain_16 => write_data,
 		datain_32  => add_to_mem_32_input,
 		dataout_16 => out_read_data,
-		dataout_32 => out_pc
+		dataout_32 => out_pc,
+		int_address => int_address
 	);
 
 ---------------------------------------stack pointer maping-----------------------------
