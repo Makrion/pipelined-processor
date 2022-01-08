@@ -32,11 +32,11 @@ end MemoryStage;
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Architecture ARCHMemoryStage of MemoryStage is
-signal or_to_en_datain_32 , or_to_en_dataout_32 ,en_add_stack_pointer ,en_sub_stack_pointer,en_mem_write,en_mem_read: std_logic;
+signal or_to_en_datain_32 , or_to_en_dataout_32 ,en_add_stack_pointer ,en_sub_stack_pointer: std_logic;
 signal mux_to_mem_address,int_address : std_logic_vector (19 downto 0);
 signal add_to_mem_32_input , stackpointer_to_addstackpointer , addstackpointer_to_mux , subbstackpointer_to_stackpointer :std_logic_vector (31 downto 0);
 signal exception_program_counter :std_logic_vector (31 downto 0);
-signal stack_exception_flag , address_exception_flag :std_logic;
+signal stack_exception_flag :std_logic;
 begin
 ---------------------------------------Signals that just passes to next stage-----------
 out_register_write <= register_write;
@@ -48,19 +48,16 @@ out_wb_address <= wb_address;
 ---------------------------------------inputs to data memory maping---------------------
 add_to_mem_32_input <= std_logic_vector(unsigned((pc)) + 1);
 
-mux_to_mem_address <= x"00003" when (stack_exception_flag = '1')		--Yousef: address of PC of stack exception
-else x"00005"				   when (address_exception_flag = '1')		--Yousef: address of PC of address exception   
+mux_to_mem_address <= x"00003" when (stack_exception_flag = '1')		--Yousef: address of PC of stack exception   
 else addstackpointer_to_mux(19 downto 0) when (stack_add = '1') 
 else (x"0" & result);
 
 or_to_en_datain_32 <= (call_flag or int_flag);
 
-or_to_en_dataout_32 <= (return_flag or rti_flag or int_flag or stack_exception_flag or address_exception_flag); --Yousef: should be enabled to read exception handler
+or_to_en_dataout_32 <= (return_flag or rti_flag or int_flag or stack_exception_flag); --Yousef: should be enabled to read stack exception handler
 
-en_add_stack_pointer<= or_to_en_dataout_32 and (not int_flag);				--Yousef added this: The stack pointer shouldn't be increased when the there is and interrupt
-en_sub_stack_pointer<= pop_flag and (not stack_exception_flag);				--Yousef added this: The stack pointer shouldn't be decreased when there is a stack exception
-en_mem_write<= mem_write and (not address_exception_flag);					--Yousef added this: Memory shouldn't write when there is an address exception
-en_mem_read<= mem_read or stack_exception_flag or address_exception_flag;		--Yousef added this: mem read should be enabled to get the address of the exception handler
+en_add_stack_pointer<= or_to_en_dataout_32 and (not int_flag);		--Yousef added this: The stack pointer shouldn't be increased when the there is and interrupt
+en_sub_stack_pointer<= pop_flag and (not stack_exception_flag);		--Yousef added this: The stack pointer shouldn't be decreased when there is an exception
 
 int_address <= (x"0" & result);
 out_result <= result;
@@ -72,8 +69,8 @@ out_rti_flag <= rti_flag;
 map_datamemory : entity work.DataMemory port map ( 
 		clk => clk,
 		reset => reset,
-		Mem_read => en_mem_read,
-		Mem_write => en_mem_write,
+		Mem_read => mem_read,
+		Mem_write => mem_write,
 		en_datain_32 => or_to_en_datain_32,
 		en_dataout_32 => or_to_en_dataout_32,
 		address => mux_to_mem_address,
@@ -109,27 +106,10 @@ map_stackpointer : entity work.StackPointer port map (
 
 
 -- handling stack exception
-
--- process helps to write on the exception_program_counter
-PROCESS(clk) IS
-BEGIN
-	IF falling_edge(clk) THEN  
-		IF(stack_exception_flag ='1' or  address_exception_flag ='1')  THEN
-			exception_program_counter<=pc;
-		END IF;
-	END IF;
-END PROCESS;
-
-exception_flag<= '1' when stack_exception_flag = '1' or address_exception_flag = '1'
-else '0';
-----------------------------------------stack exception
-stack_exception_flag<= '1' when pop_flag ='1' and (stackpointer_to_addstackpointer = x"000FFFFF")
-else '0';
-
-----------------------------------------address exception
-address_exception_flag<='1' when stack_add = '0' and result > x"FF00" and (mem_write ='1' or mem_read ='1')
-else '0';
-
+stack_exception_flag<= '1' when pop_flag ='1' and (stackpointer_to_addstackpointer = x"000FFFFF");
+exception_program_counter<=pc when stack_exception_flag ='1';
+exception_flag<='1' when stack_exception_flag = '1'
+else 0;
 
 
 end ARCHMemoryStage;

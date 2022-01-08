@@ -64,6 +64,12 @@ add wave -position insertpoint  \
 sim:/integration/map_ExecuteStage/map_alu/source2
 add wave -position insertpoint  \
 sim:/integration/map_MemoryStage/map_stackpointer/q
+add wave -position insertpoint  \
+sim:/integration/map_MemoryStage/exception_program_counter
+add wave -position insertpoint  \
+sim:/integration/map_MemoryStage/exception_flag
+add wave -position insertpoint  \
+sim:/integration/map_MemoryStage/address_exception_flag
 
 run
 add wave -position insertpoint  \
@@ -90,4 +96,4 @@ run
 run
 run
 run
-force -freeze sim:/integration/in_port x\"10\" 0
+force -freeze sim:/integration/in_port x\"FD60\" 0

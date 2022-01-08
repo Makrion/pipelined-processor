@@ -11,6 +11,7 @@ Entity FetchStage is
 --Signals important for the PCLogic (4 in) (2 out)
 
 		return_flag , rti_flag , int_flag , call_flag , branch_flag : in std_logic;
+		exception_flag : in std_logic;
 		hlt_signal , intrusction_size : in std_logic;
 		pc_branch_call , pc_return_rti_int_reset : in std_logic_vector (31 downto 0);
 
@@ -44,6 +45,7 @@ begin
 map_PCLogic : entity work.PCLogic port map ( 
 		selector_reset =>reset,
 		selector_branch =>branch_flag,
+		selector_exception => exception_flag,
 	 	selector_call => call_flag,
 		selector_return => return_flag,
  		selector_rti => rti_flag,

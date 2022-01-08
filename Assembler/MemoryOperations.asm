@@ -44,5 +44,5 @@ STD R2,200(R5)   #M[210]=5, Exception in the 2nd run
 STD R1,201(R5)   #M[211]=19
 LDD R3,201(R5)   #R3=19
 LDD R4,200(R5)   #R4=5
-POP R3  #exception
+#POP R3  #exception
 #ADD R1, R2, R3 #should not execute as their is an exception

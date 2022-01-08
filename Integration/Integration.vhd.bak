@@ -101,6 +101,8 @@ signal out_mem_pc_return_rti_int_reset : std_logic_vector(31 downto 0);
 signal fetch_buffer_en :std_logic;
 signal fetch_buffer_rst :std_logic;
 
+--------------exception
+signal signal_exception_flag : std_logic;
 begin 
 
 ----------------------------------------------------------------------------------------------------------------integ-fetch-decode
@@ -117,14 +119,16 @@ map_FetchStage : entity work.FetchStage port map (
 		pc_branch_call =>out_branch_call_pc, 
 		pc_return_rti_int_reset =>out_mem_pc_return_rti_int_reset,
 		out_pc => fetch_to_buffer(31 downto 0), 		
-		out_instruction => fetch_to_buffer(63 downto 32)
+		out_instruction => fetch_to_buffer(63 downto 32),
+		----exception
+		exception_flag => signal_exception_flag
 		);
 
 fetch_buffer_en <= (not decode_to_buffer(25)); ---decode_to_buffer here = controller signals
 --			flush from controller		
 --removed or decode_to_buffer(5) for now causing and error to flush the buffer in the current instruction (fetch flush signal)	
----					branch ornot				call flush				return_int_rti flush from ex	return_int_rti flush from mem
-fetch_buffer_rst <=out_pc_selector_branch_ornot or buffer_to_excute(23) or buffer_to_excute(22) 	 or buffer_to_memory(7);			;
+---					exception flag			branch ornot					call flush				return_int_rti flush from ex	return_int_rti flush from mem
+fetch_buffer_rst <=signal_exception_flag or out_pc_selector_branch_ornot or buffer_to_excute(23) or buffer_to_excute(22) or buffer_to_memory(7);		
 
 map_Stage_fetch_decode_Buffer : entity work.StageBuffer generic map (64) port map (
 		 clk => clk,
@@ -156,12 +160,13 @@ map_Decodingstage : entity work.decoding_stage port map (
 		out_in_port => decode_to_buffer(105 downto 90)
     	);
 
-decode_buffer_rst<=reset;-- or out_pc_selector_branch_ornot removed this as it caused error (deleted its own buffer) ;
+					--return_int_rti flush from mem
+decode_buffer_rst<= buffer_to_memory(7);		or 	signal_exception_flag;-- or out_pc_selector_branch_ornot removed this as it caused error (deleted its own buffer) ;
 
 map_Stage_decode_ex_Buffer : entity work.StageBuffer generic map (130) port map (
 		clk => clk,
-		rst => decode_buffer_rst,
-		flush => '0',
+		rst => reset,
+		flush => decode_buffer_rst,
 		en => '1',
 		d => decode_to_buffer,  
 		q => buffer_to_excute
@@ -275,7 +280,9 @@ map_MemoryStage : entity work.MemoryStage port map (
 		out_return_flag => out_mem_return_flag,
 		out_int_flag => out_mem_int_flag, 
 		out_rti_flag => out_mem_rti_flag,
-		out_pc => out_mem_pc_return_rti_int_reset
+		out_pc => out_mem_pc_return_rti_int_reset,
+		-- exception
+		exception_flag => signal_exception_flag
 		);
 
 map_Stage_mem_wb_Buffer : entity work.StageBuffer generic map (40) port map (
