@@ -72,6 +72,10 @@ add wave -position insertpoint  \
 sim:/integration/map_ExecuteStage/out_return_int_rti_flush
 add wave -position insertpoint  \
 sim:/integration/map_MemoryStage/out_return_int_rti_flush
+add wave -position insertpoint  \
+sim:/integration/map_ExecuteStage/alu_control
+add wave -position insertpoint  \
+sim:/integration/map_ExecuteStage/map_alu/flag_register_data_write
 
 run
 
@@ -89,3 +93,54 @@ run
 force -freeze sim:/integration/in_port x\"100\" 0
 run
 force -freeze sim:/integration/in_port x\"300\" 0
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/integration/in_port x\"700\" 0
+run
+run
+run
+run
+
+run
+run
+run
+run
+run
+run
+
+run
+run
+run
+run
+run
+run
+run
+run

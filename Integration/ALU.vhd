@@ -72,6 +72,9 @@ else                    '1' when alu_control = "00111"  -- 7-for (sub) changes (
 else                    '1' when alu_control = "01000"  -- 8- for (and) operation and changes the flags (zero and negative)
 else                    '1' when alu_control = "01111"  -- 15- for (int) and changes the stack address and reserve the flags (writes in the register)
 else                    '1' when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address (writes in the register )   
+else                    '1' when alu_control = "01011"  -- 11- for (jz)  unset the zero flag 
+else                    '1' when alu_control = "01100"  -- 12- for (jn)  unset the negative flag
+else                    '1' when alu_control = "01101"  -- 13- for (jc)  unset the carry flag              
 else                    '0' ;                             -- 15 and 16 will be special cases
 
 -----------------------------to control which half in the register to write in-------------------------------------
@@ -85,6 +88,9 @@ else                     '1' when alu_control = "00111"  -- 7-for (sub) changes 
 else                     '1' when alu_control = "01000"  -- 8- for (and) operation and changes the flags (zero and negative)
 else                     '0' when alu_control = "01111"  -- 15- for (int) and changes the stack address and reserve the flags (writes in the register)
 else                     '1' when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address (writes in the register )   
+else                    '1' when alu_control = "01011"  -- 11- for (jz)  unset the zero flag 
+else                    '1' when alu_control = "01100"  -- 12- for (jn)  unset the negative flag
+else                    '1' when alu_control = "01101"  -- 13- for (jc)  unset the carry flag 
 else                     '0' ; -- it doesn't matter here because the enable will be equal to zero
 
 
@@ -95,6 +101,7 @@ else               temp_result(16)        when alu_control = "00110"  -- 6- for 
 else               temp_result(16)        when alu_control = "00111"  -- 7-for (sub) changes (zero and negative and carry)
 else               temp_result(16)        when alu_control = "00011"  -- 3-for (inc) changes (zero and negative and carry)
 else    flag_register_data_read(5)        when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address (writes in the register )          
+else                           '0'        when alu_control = "01101"  -- 13- for (JC) reset(carry flag)         
 else    flag_register_data_read(2) ; -- in any other case i return the carry i read 
 
 ---change negative flag--------------------------------------------last else equal to flag_register_data_read(1) 
@@ -105,6 +112,7 @@ else                            temp_result(15)    when alu_control = "00111"  -
 else                            '1'                when (alu_control = "00111" and  Src1BiggerThanSrc2 ='0')   -- 7-for (sub) changes (zero and negative and carry)    
 else                            temp_result(15)    when alu_control = "01000"  -- 8- for (and) operation and changes the flags (zero and negative)
 else                 flag_register_data_read(4)    when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address (writes in the register )   
+else                            '0'                when alu_control = "01100"  -- 12- for (JN) operation and changes the flags (negative)
 else                            flag_register_data_read(1) ;
 
 ---change zero flag--------------------------------------------last else equal to flag_register_data_read(0)
@@ -118,6 +126,7 @@ else                           '0'   when ( (alu_control = "00011") and unsigned
 else                           '0'   when ( (alu_control = "00110") and unsigned(temp_result(15 DOWNTO 0)) /=0 ) -- 6- for the (add) and (addi) changes the flags (zero and negative and carry)  
 else                           '0'   when ( (alu_control = "00111") and unsigned(temp_result(15 DOWNTO 0)) /=0 ) -- 7-for (sub) changes (zero and negative and carry)
 else                           '0'   when ( (alu_control = "01000") and unsigned(temp_result(15 DOWNTO 0)) /=0 ) -- 8- for (and) operation and changes the flags (zero and negative)
+else                           '0'   when alu_control = "01011"                                                  -- 11- for (JZ) operation and changes the flags (zero)
 else              flag_register_data_read(3)    when alu_control = "10000"  -- 16- for (rti) restore the flags and change the stack address (writes in the register )   
 else                           flag_register_data_read(0);     
 
