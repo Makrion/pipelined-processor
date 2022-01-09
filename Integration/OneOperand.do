@@ -51,7 +51,14 @@ sim:/integration/in_port
 add wave -position end  sim:/integration/map_ExecuteStage/map_flagReg/q
 run
 add wave -position insertpoint  \
-sim:/integration/map_Decodingstage/data1_data2/DDF1_output1/d
+sim:/integration/map_Decodingstage/data1_data2/DF0 \
+sim:/integration/map_Decodingstage/data1_data2/DF1 \
+sim:/integration/map_Decodingstage/data1_data2/DF2 \
+sim:/integration/map_Decodingstage/data1_data2/DF3 \
+sim:/integration/map_Decodingstage/data1_data2/DF4 \
+sim:/integration/map_Decodingstage/data1_data2/DF5 \
+sim:/integration/map_Decodingstage/data1_data2/DF6 \
+sim:/integration/map_Decodingstage/data1_data2/DF7
 
 force -freeze sim:/integration/clk 0 0, 1 {50 ps} -r 100
 force -freeze sim:/integration/reset 1 0
@@ -61,25 +68,10 @@ force -freeze sim:/integration/reset 0 0
 
 run
 run
+run
+run
+run
+
 force -freeze sim:/integration/in_port x\"5\" 0
 run
-run
-run
-run
-run
-run
 force -freeze sim:/integration/in_port x\"10\" 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run

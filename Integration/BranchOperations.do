@@ -94,8 +94,7 @@ force -freeze sim:/integration/in_port x\"100\" 0
 run
 force -freeze sim:/integration/in_port x\"300\" 0
 
-run
-run
+
 run
 run
 run
@@ -136,11 +135,3 @@ run
 run
 run
 
-run
-run
-run
-run
-run
-run
-run
-run

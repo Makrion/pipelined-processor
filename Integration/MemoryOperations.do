@@ -94,6 +94,4 @@ run
 run
 run
 run
-run
-run
-force -freeze sim:/integration/in_port x\"FD60\" 0
+force -freeze sim:/integration/in_port x\"10\" 0

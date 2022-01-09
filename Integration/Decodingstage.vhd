@@ -17,7 +17,11 @@ Entity decoding_stage is
           out_offset  : out std_logic_vector (15 downto 0); --goes into a mux that decide which is source2 {from [0,15]}
           out_destinationaddress1 : out std_logic_vector (3 downto 0); --bits form [0,3] to decide the destination with a mux
           out_destinationaddress2 : out std_logic_vector (3 downto 0); --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
-          out_in_port           : out std_logic_vector (15 downto  0 )
+          out_in_port           : out std_logic_vector (15 downto  0 );
+          out_source1_forwardingunit : out std_logic_vector (2 downto  0 );--goes to the forwarding unit (passes by the buffer)
+          out_source2_forwardingunit : out std_logic_vector (2 downto  0 ); --goes to the forwarding unit (passes by the buffer)
+          control_signal_selector: in std_logic   -- it is the output of the hazard-detection unit it will be used to determine if we will pass zeros or the control signals ..
+
     );
     end decoding_stage ; 
 
@@ -63,7 +67,8 @@ Architecture decoding_stage_imp of decoding_stage is
 
         data1<=data1_output; 
         data2<=data2_output;
-        signals<=signals_output; 
+        signals<=signals_output when control_signal_selector='0' 
+        else (others=>'0');
 
 
         out_pc <=pc;              
@@ -72,6 +77,9 @@ Architecture decoding_stage_imp of decoding_stage is
         out_destinationaddress2 <= instruction(19 downto 16);
         out_in_port <= in_port;
 
+        ---for forwarding unit src1,2 addresses----------------
+        out_source1_forwardingunit <= instruction(24 downto 22) ; --the addres from the inst
+        out_source2_forwardingunit <= instruction(20 downto 18) ; --the addres from the inst
 	
 end decoding_stage_imp;
 

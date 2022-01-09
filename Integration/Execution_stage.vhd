@@ -32,7 +32,11 @@ Entity ExecutionStage is
        offset  : in std_logic_vector (15 downto 0); --goes into a mux that decide which is source2 {from [0,15]}
        destinationaddress1 : in std_logic_vector (3 downto 0); --bits form [0,3] to decide the destination with a mux
        destinationaddress2 : in std_logic_vector (3 downto 0); --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
-
+------------------for the hazards----------------------------------------
+      wb_data : in std_logic_vector (15 downto 0); --for data forwarding the first mux for source1(hazard)
+      data_forwarded :in std_logic_vector (15 downto 0);--came from memory stage (result)(hazard)
+      data_forwarding_selector1:in std_logic_vector (1 downto 0);--for the source1 mux (hazard)
+      data_forwarding_selector2:in std_logic_vector (1 downto 0);--for the source2 mux (hazard)
 --outputs--------------------------------------------
       out_pc : out std_logic_vector (31 downto 0); -- passing the pc
       branch_call_pc : out  std_logic_vector (31 downto 0); --is taken from data1
@@ -54,6 +58,9 @@ Entity ExecutionStage is
     signal flag_register_control    : std_logic ; --control of flag reg from alu
     signal temp_result : std_logic_vector (15 downto 0); --for the logical and
 
+---signals for hazard muxes--------------------------------------------------------------------
+signal alu_first_operand : std_logic_vector (15 downto 0); -- directly to the alu (out of the first mux )
+signal alu_second_source : std_logic_vector (15 downto 0); -- goes to the next mux to know the alu source2
 
     begin
     --- signals that just passing by------------------------------------------------
@@ -71,10 +78,10 @@ Entity ExecutionStage is
     out_int_flag             <= int_flag;
     out_rti_flag             <= rti_flag;
     out_pc                   <= pc ;
-    branch_call_pc           <= x"0000" & data1;
+    branch_call_pc           <= x"0000" & alu_first_operand; --from the mux for hazzard
 
     --mux for source2----------------------------------------------------------------
-    source2 <= data2  when alu_src ="00"
+    source2 <= alu_second_source  when alu_src ="00"
     else       offset when alu_src ="01"
     else      in_port when alu_src ="10"
     else      x"000" & destinationaddress2 when alu_src="11"
@@ -86,9 +93,23 @@ Entity ExecutionStage is
     else       (OTHERS => '0');  
 
     --mux for mem data write----------------------------------------------------------    
-    write_data <= data1 when mem_data_write = '0'
-    else          data2 when mem_data_write = '1'
+    write_data <=  alu_first_operand when mem_data_write = '0'
+    else          alu_second_source when mem_data_write = '1'
     else          (OTHERS => '0'); 
+
+    ----------it is the blue mux  int the execution stage which  it is changed from data1 to alu_first_operand
+    ----------and from data2 to alu_second_source.
+
+    ----first mux for forward unit--------------------------------
+    alu_first_operand <=  data1  when  data_forwarding_selector1 ="00"
+    else                 wb_data when  data_forwarding_selector1 ="01"
+    else          data_forwarded when  data_forwarding_selector1 ="10"
+    else     (OTHERS => '0');  
+  ----second mux for forward unit-------------------------------
+     alu_second_source <=  data2  when  data_forwarding_selector2 ="00"
+   else                 wb_data   when  data_forwarding_selector2 ="01"
+   else          data_forwarded   when  data_forwarding_selector2 ="10"
+   else     (OTHERS => '0');       
        
     ---the logical and for branching---------------------------------------------------
     result <= temp_result;
@@ -97,7 +118,7 @@ Entity ExecutionStage is
     ----alu port map---------------------------
     
    map_alu : entity work.Alu port map (
-    source1                       => data1,
+    source1                       => alu_first_operand,
     source2                       => source2,
     alu_control                   => alu_control,
     flag_register_data_read       => flag_register_data_read,    

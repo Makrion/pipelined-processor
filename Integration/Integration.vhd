@@ -39,7 +39,7 @@ signal buffer_to_decode, fetch_to_buffer : std_logic_vector (63 downto 0);
 -----------MSB
 
 -----------signals-between-decode-and-excute
-signal buffer_to_excute, decode_to_buffer : std_logic_vector (129 downto 0);
+signal buffer_to_excute, decode_to_buffer : std_logic_vector (135 downto 0);
 -----------LSB
 -----------[26] contoller signals	25:0
 -----------[32]	pc					57:26
@@ -49,6 +49,8 @@ signal buffer_to_excute, decode_to_buffer : std_logic_vector (129 downto 0);
 -----------[16]	offset 				121:106
 -----------[4]	destinationaddress1 125:122
 -----------[4]	destinationaddress2	129:126
+-----------[3]  out_source1_forwardingunit   130:132  ----added for the hazard 
+-----------[3]  out_source2_forwardingunit   133:135  ----added for the hazard
 -----------MSB
 
 -----------signals-between-excute-and-memory
@@ -103,7 +105,24 @@ signal fetch_buffer_rst :std_logic;
 
 --------------exception
 signal signal_exception_flag : std_logic;
+
+----------------forwarding unit the two selectors to ex stage for the two muxes
+signal out_data_forwarding_selector1 : std_logic_vector(1 downto 0);
+signal out_data_forwarding_selector2 : std_logic_vector(1 downto 0);
+
+---------------------------------------------------------------------------------------------
+---------------------------------------------Hazard detection unit ; 
+signal out_hazard_control_unit_selector        : std_logic; 
+signal out_hazard_control_unit_en    	       : std_logic;
+signal out_hazard_control_unit_Pc_write_or_not : std_logic;
+
+-----------------------------------------------------
+signal pc_enable :std_logic ; -- this will be used to stop the increment of the pc if hazard decteion unit pc write or not =0 or hlt signal =1 ; 
+------------------------------------------------------
 begin 
+
+
+pc_enable <= decode_to_buffer(25) or not(out_hazard_control_unit_Pc_write_or_not);
 
 ----------------------------------------------------------------------------------------------------------------integ-fetch-decode
 map_FetchStage : entity work.FetchStage port map (
@@ -114,7 +133,7 @@ map_FetchStage : entity work.FetchStage port map (
 		int_flag =>out_mem_int_flag, 
 		call_flag =>excution_to_buffer(1), 
 		branch_flag =>out_pc_selector_branch_ornot ,		---pc selector branch ornot
-		hlt_signal => decode_to_buffer(25), 			---decode_to_buffer here = controller signals
+		hlt_signal => pc_enable, 			---decode_to_buffer here = controller signals
 		intrusction_size => decode_to_buffer(24), 		---decode_to_buffer here = controller signals
 		pc_branch_call =>out_branch_call_pc, 
 		pc_return_rti_int_reset =>out_mem_pc_return_rti_int_reset,
@@ -124,7 +143,7 @@ map_FetchStage : entity work.FetchStage port map (
 		exception_flag => signal_exception_flag
 		);
 
-fetch_buffer_en <= (not decode_to_buffer(25)); ---decode_to_buffer here = controller signals
+fetch_buffer_en <= (not decode_to_buffer(25) and (not out_hazard_control_unit_en)); ---decode_to_buffer here = controller signals
 --			flush from controller		
 --removed or decode_to_buffer(5) for now causing and error to flush the buffer in the current instruction (fetch flush signal)	
 ---					exception flag			branch ornot					call flush				return_int_rti flush from ex	return_int_rti flush from mem
@@ -133,11 +152,26 @@ fetch_buffer_rst <=signal_exception_flag or out_pc_selector_branch_ornot or buff
 map_Stage_fetch_decode_Buffer : entity work.StageBuffer generic map (64) port map (
 		 clk => clk,
 		 rst => reset ,
-		 flush => fetch_buffer_rst,	    
+		 flush => fetch_buffer_rst,	  	    
 		 en => fetch_buffer_en,			---decode_to_buffer here = controller signals
 		 d => fetch_to_buffer,  
 		 q => buffer_to_decode
 		);
+
+
+----------------------------------------------------------------------------------------------------------------
+hazard_detection_unit: entity work.hazard_detection_unit port map(
+	source1=>buffer_to_decode(56 downto 54),
+	source2=>buffer_to_decode(52 downto 50),         
+	load_address=>buffer_to_excute(128 downto 126),            
+	mem_read=>buffer_to_excute(16),                
+	control_signals_selector=>out_hazard_control_unit_selector,
+	stop_fetch_flag=> out_hazard_control_unit_en,         
+	PC_wirte_or_not=>out_hazard_control_unit_Pc_write_or_not        
+);
+	
+-----------------------------------------------------------------------------------------------------integ-Excute-memory
+
 
 -----------------------------------------------------------------------------------------------------integ-decode-Excute
 
@@ -157,13 +191,16 @@ map_Decodingstage : entity work.decoding_stage port map (
         out_offset => decode_to_buffer(121 downto 106),
         out_destinationaddress1 => decode_to_buffer(125 downto 122),
         out_destinationaddress2 => decode_to_buffer(129 downto 126),
-		out_in_port => decode_to_buffer(105 downto 90)
+		out_in_port => decode_to_buffer(105 downto 90),
+		out_source1_forwardingunit => decode_to_buffer(132 downto 130),
+		out_source2_forwardingunit => decode_to_buffer(135 downto 133),
+		control_signal_selector=>out_hazard_control_unit_selector
     	);
 
-					--return_int_rti flush from mem
+--return_int_rti flush from mem
 decode_buffer_rst<= buffer_to_memory(7)		or 	signal_exception_flag;-- or out_pc_selector_branch_ornot removed this as it caused error (deleted its own buffer) ;
 
-map_Stage_decode_ex_Buffer : entity work.StageBuffer generic map (130) port map (
+map_Stage_decode_ex_Buffer : entity work.StageBuffer generic map (136) port map (
 		clk => clk,
 		rst => reset,
 		flush => decode_buffer_rst,
@@ -171,6 +208,21 @@ map_Stage_decode_ex_Buffer : entity work.StageBuffer generic map (130) port map 
 		d => decode_to_buffer,  
 		q => buffer_to_excute
 	);
+---------------------------------------------------------------------------
+--                   forwarding unit
+---------------------------------------------------------------------------
+map_forwardingunit : entity work.forwarding_unit port map (
+	source1 => buffer_to_excute(132 downto 130), --from the D-BUFFER-EX
+	source2 => buffer_to_excute(135 downto 133), --from the D-BUFFER-EX
+	register_write_mem => buffer_to_memory(2), --from the EX-BUFFER-mem
+    register_write_wb => buffer_to_wb(36), --from the MEM-BUFFER-WB
+	wb_address_mem => buffer_to_memory(80 downto 78),--wb address from mem stage
+	wb_address_wb => buffer_to_wb(34 downto 32),-- wb address from wb_stage (the green wire)
+	data1_selector => out_data_forwarding_selector1,
+	data2_selector => out_data_forwarding_selector2
+);
+
+
 
 ----------------------------------------------------------------------------------------------------------------
 	
@@ -225,7 +277,11 @@ map_ExecuteStage : entity work.ExecutionStage port map (
 			offset  =>buffer_to_excute(121 downto 106), --goes into a mux that decide which is source2 {from [0,15]}
 			destinationaddress1 =>buffer_to_excute(125 downto 122), --bits form [0,3] to decide the destination with a mux
 			destinationaddress2 =>buffer_to_excute(129 downto 126), --bits from [16,19] to decide the destination with a mux goes also to source2  x"000" & arg
-
+         -----for the hazards---------------------------------
+		    wb_data => out_wb_data,--we take it from the wb_stage
+			data_forwarded => buffer_to_memory(60 downto 45),--we take it from the memory stage
+			data_forwarding_selector1=> out_data_forwarding_selector1,--from fw unit
+			data_forwarding_selector2=> out_data_forwarding_selector2, --from fw unit
 		--outputs--------------------------------------------
 			out_pc =>excution_to_buffer(44 downto 13), 		-- passing the pc
 			branch_call_pc =>out_branch_call_pc, 			--is taken from data1
