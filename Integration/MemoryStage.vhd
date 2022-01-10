@@ -39,7 +39,8 @@ signal exception_program_counter :std_logic_vector (31 downto 0);
 signal stack_exception_flag , address_exception_flag :std_logic;
 begin
 ---------------------------------------Signals that just passes to next stage-----------
-out_register_write <= register_write;
+out_register_write <= '0' when stack_exception_flag ='1' or address_exception_flag ='1'
+else register_write;
 out_write_Back_selector <= write_Back_selector;
 out_output_signal <= output_signal;
 out_return_int_rti_flush <= return_int_rti_flush;
